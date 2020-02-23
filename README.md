@@ -1,2 +1,2 @@
 # algorithms
-Collection of algorithms
+Collections of algorithms
