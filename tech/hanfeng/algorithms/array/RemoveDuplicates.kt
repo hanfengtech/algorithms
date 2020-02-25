@@ -1,7 +1,7 @@
 package tech.hanfeng.algorithms.array
 
 /**
- * Remove duplicates in a sorted array.
+ * Remove duplicates in a sorted array in place and return the new array length.
  *
  * T(O) = O(N)
  *
