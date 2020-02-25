@@ -2,6 +2,17 @@ package tech.hanfeng.algorithms.strings
 
 import kotlin.math.max
 
+/**
+ *
+ * T(N), S(N)
+ *
+ * @difficulty
+ * Medium
+ *
+ * @type
+ * Two pointers + Map
+ *
+ */
 fun longestSubstringWithoutRepeatingCharactersMap(str : String) : Int {
     if (str.isBlank()) return 0
 
@@ -20,6 +31,14 @@ fun longestSubstringWithoutRepeatingCharactersMap(str : String) : Int {
     return ans
 }
 
+/**
+ *　
+ * T(N), S(1)
+ *
+ * @type
+ * Two pointers
+ *
+ */
 fun longestSubstringWithoutRepeatingCharacters(str : String) : Int {
     if (str.isBlank()) return 0
 
