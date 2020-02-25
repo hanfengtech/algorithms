@@ -21,6 +21,9 @@ import kotlin.collections.HashMap
  *
  * @difficulty
  * Easy
+ *
+ * @type
+ * Map
  */
 fun twoSum(nums : IntArray, target: Int) : IntArray {
     val map = HashMap<Int, Int>()
