@@ -110,4 +110,6 @@ fun main() {
     print(preOrder(tree))
     print("\nPre-Order: ")
     print(preOrder(null))
+    println("\nPre-order: ")
+    preorderPretty(tree)
 }
