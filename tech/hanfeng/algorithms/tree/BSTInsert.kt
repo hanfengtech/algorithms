@@ -35,22 +35,7 @@ fun insert(root : TreeNode?, x : Int) : TreeNode {
 }
 
 fun main() {
-    var bst = insert(null, 44)
-
-    bst = insert(bst, 17)
-    bst = insert(bst, 88)
-    bst = insert(bst, 8)
-    bst = insert(bst, 32)
-    bst = insert(bst, 28)
-    bst = insert(bst, 29)
-    bst = insert(bst, 65)
-    bst = insert(bst, 54)
-    bst = insert(bst, 82)
-    bst = insert(bst, 76)
-    bst = insert(bst, 68)
-    bst = insert(bst, 80)
-    bst = insert(bst, 97)
-    bst = insert(bst, 93)
+    var bst = populateTree()
 
     print("Pre-order: ")
     print(preorder(bst).joinToString())

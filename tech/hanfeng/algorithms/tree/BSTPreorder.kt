@@ -35,9 +35,8 @@ fun dfsIt(root: TreeNode?) : ArrayList<Int>? {
     var cur = root
     stack.push(cur)
     while (!stack.empty()) {
-        cur = stack.peek()
-        list.add(cur.value)
         cur = stack.pop()
+        list.add(cur.value)
 
         if (cur.right != null) {
             stack.push(cur.right)
@@ -78,4 +77,11 @@ fun preorderPretty(root: TreeNode?) {
     }
 
     helper(root, 0)
+}
+
+
+fun main() {
+    val tree = populateTree()
+    print("\nPre-Order: ")
+    print(preorder(tree))
 }
