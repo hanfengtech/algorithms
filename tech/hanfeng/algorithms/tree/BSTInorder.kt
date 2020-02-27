@@ -26,35 +26,36 @@ fun inorderRec(root : TreeNode) : ArrayList<Int> {
     return list
 }
 
-fun inorder(root : TreeNode?) : ArrayList<Int>{
+fun inOrder(root : TreeNode?) : List<Int>? {
+    if (root == null) return null
 
-    val list = ArrayList<Int>()
+    val result = ArrayList<Int>()
     val stack = Stack<TreeNode>()
     var cur = root
 
-    while (cur != null || !stack.empty()) {
-
+    while (cur != null || stack.isNotEmpty()) {
         if (cur != null) {
             stack.push(cur)
             cur = cur.left
-            continue
+        } else {
+            cur = stack.pop()
+            result.add(cur.value)
+            cur = cur.right
         }
-
-        cur = stack.pop()
-        list.add(cur.value)
-
-        cur = cur.right
     }
 
-    return list
+    return result
 }
 
 fun main() {
     val tree = populateTree()
 
     print("In-order: ")
-    print(inorderRec(tree).joinToString())
+    print(inorderRec(tree))
 
     print("\nIn-order: ")
-    print(inorder(tree).joinToString())
+    print(inOrder(tree))
+
+    print("\nIn-order: ")
+    print(inOrder(null))
 }

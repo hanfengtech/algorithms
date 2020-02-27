@@ -38,9 +38,9 @@ fun main() {
     var bst = populateTree()
 
     print("Pre-order: ")
-    print(preorder(bst).joinToString())
+    print(preOrder(bst))
     print("\nPre-order: ")
-    print(dfsIt(bst)!!.joinToString())
+    print(dfsIt(bst))
     println("\nPre-order: ")
     preorderPretty(bst)
 }

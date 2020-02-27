@@ -26,23 +26,25 @@ fun postOrderRec(root : TreeNode?) : ArrayList<Int>? {
     return list
 }
 
-fun postOrder(root : TreeNode?) : List<Int> {
-    val list = LinkedList<Int>()
+fun postOrder(root: TreeNode?) : List<Int>? {
+    if (root == null) return null
+
+    val result = LinkedList<Int>()
     val stack = Stack<TreeNode>()
     var cur = root
 
-    while(stack.isNotEmpty() || cur != null) {
+    while(cur != null || stack.isNotEmpty()) {
         if (cur != null) {
+            result.addFirst(cur.value)
             stack.push(cur)
-            list.addFirst(cur.value)
             cur = cur.right
         } else {
-            val node = stack.pop()
-            cur = node.left
+            cur = stack.pop()
+            cur = cur.left
         }
     }
 
-    return list
+    return result
 }
 
 fun main() {
@@ -51,4 +53,6 @@ fun main() {
     print(postOrderRec(tree))
     print("\nPost-Order: ")
     print(postOrder(tree))
+    print("\nPost-Order: ")
+    print(postOrder(null))
 }

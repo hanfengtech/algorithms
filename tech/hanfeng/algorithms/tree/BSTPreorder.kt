@@ -3,7 +3,7 @@ package tech.hanfeng.algorithms.tree
 import java.util.*
 import kotlin.collections.ArrayList
 
-fun preorder(root : TreeNode) : ArrayList<Int> {
+fun preorderRec(root : TreeNode) : ArrayList<Int> {
 
     val list = ArrayList<Int>()
 
@@ -34,7 +34,7 @@ fun dfsIt(root: TreeNode?) : ArrayList<Int>? {
     val stack = Stack<TreeNode>()
     var cur = root
     stack.push(cur)
-    while (!stack.empty()) {
+    while (stack.isNotEmpty()) {
         cur = stack.pop()
         list.add(cur.value)
 
@@ -48,6 +48,27 @@ fun dfsIt(root: TreeNode?) : ArrayList<Int>? {
     }
 
     return list
+}
+
+fun preOrder(root:  TreeNode?) : List<Int>? {
+    if (root == null) return null
+
+    val result = LinkedList<Int>()
+    val stack = Stack<TreeNode>()
+    var cur = root
+
+    while (cur != null || stack.isNotEmpty()) {
+        if (cur != null) {
+            result.add(cur.value)
+            stack.push(cur)
+            cur = cur.left
+        } else {
+            cur = stack.pop()
+            cur = cur.right
+        }
+    }
+
+    return result
 }
 
 fun preorderPretty(root: TreeNode?) {
@@ -83,5 +104,10 @@ fun preorderPretty(root: TreeNode?) {
 fun main() {
     val tree = populateTree()
     print("\nPre-Order: ")
-    print(preorder(tree))
+    print(preorderRec(tree))
+
+    print("\nPre-Order: ")
+    print(preOrder(tree))
+    print("\nPre-Order: ")
+    print(preOrder(null))
 }
