@@ -53,9 +53,28 @@ fun main() {
     bst = insert(bst, 93)
 
     print("Pre-order: ")
-    preorder(bst)
+    print(preorder(bst).joinToString())
     print("\nPre-order: ")
-    dfsIt(bst)
+    print(dfsIt(bst)!!.joinToString())
     println("\nPre-order: ")
     preorderPretty(bst)
+}
+
+fun populateTree() : TreeNode {
+    var bst = insert(null, 44)
+    bst = insert(bst, 17)
+    bst = insert(bst, 88)
+    bst = insert(bst, 8)
+    bst = insert(bst, 32)
+    bst = insert(bst, 28)
+    bst = insert(bst, 29)
+    bst = insert(bst, 65)
+    bst = insert(bst, 54)
+    bst = insert(bst, 82)
+    bst = insert(bst, 76)
+    bst = insert(bst, 68)
+    bst = insert(bst, 80)
+    bst = insert(bst, 97)
+    bst = insert(bst, 93)
+    return bst
 }
