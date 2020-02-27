@@ -40,6 +40,21 @@ fun twoSum(nums : IntArray, target: Int) : IntArray {
 }
 
 
+fun twoSum2(nums: IntArray, target: Int): IntArray {
+    val map = HashMap<Int, Int>()
+
+    for((i, num) in nums.withIndex()) {
+        var complement = nums[i] - target
+        if (map.containsKey(complement)) {
+            return intArrayOf(map[complement]!!, i)
+        } else {
+            map[num] = i
+        }
+    }
+
+    throw IllegalArgumentException("No two sum solution")
+}
+
 /**
  * @output
  *
@@ -49,6 +64,6 @@ fun twoSum(nums : IntArray, target: Int) : IntArray {
  *          at tech.hanfeng.algorithms.array.client.TwoSumClient.main(TwoSumClient.java:21)
  */
 fun main() {
-    println(twoSum(intArrayOf(2, 7, 11, 15), 13).contentToString())
+    println(twoSum2(intArrayOf(2, 7, 11, 15), 9).contentToString())
     println(twoSum(intArrayOf(2, 7, 11, 15), 30).contentToString())
 }
