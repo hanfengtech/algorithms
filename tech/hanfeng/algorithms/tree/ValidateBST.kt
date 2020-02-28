@@ -7,7 +7,8 @@ fun isValidateBST(root : TreeNode?) : Boolean {
 
     if (!isValidateBST(root.left)) return false
 
-    if ( !(prevVal < root.value) ) return false
+    // if left child which is the prev node value greater than curr value, return false
+    if (prevVal >= root.value) return false 
 
     prevVal = root.value
 
