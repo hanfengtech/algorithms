@@ -45,3 +45,19 @@ fun populateBalancedTree() : TreeNode {
 
     return node
 }
+
+fun populatePathTree() : TreeNode {
+    var node = TreeNode(5)
+    node.left = TreeNode(4)
+    node.left!!.left = TreeNode(11)
+    node.left!!.left!!.left = TreeNode(7)
+    node.left!!.left!!.right = TreeNode(2)
+
+    node.right = TreeNode(8)
+    node.right!!.left = TreeNode(13)
+    node.right!!.right = TreeNode(4)
+    node.right!!.right!!.left = TreeNode(5)
+    node.right!!.right!!.right = TreeNode(1)
+
+    return node
+}
