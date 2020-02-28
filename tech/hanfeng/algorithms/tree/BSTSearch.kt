@@ -1,5 +1,7 @@
 package tech.hanfeng.algorithms.tree
 
+import tech.hanfeng.algorithms.tree.utils.TreeNode
+
 fun searchR(root : TreeNode?, target : Int) : TreeNode? {
     if (root == null) return null
 

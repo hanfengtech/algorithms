@@ -1,5 +1,9 @@
 package tech.hanfeng.algorithms.tree
 
+import tech.hanfeng.algorithms.tree.utils.TreeNode
+import tech.hanfeng.algorithms.tree.utils.populateTree
+import tech.hanfeng.algorithms.tree.utils.preorderPretty
+
 var processedNode : TreeNode? = null
 
 fun flattenToList(root : TreeNode?) {

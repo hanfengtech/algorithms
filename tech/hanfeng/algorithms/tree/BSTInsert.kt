@@ -1,5 +1,9 @@
 package tech.hanfeng.algorithms.tree
 
+import tech.hanfeng.algorithms.tree.utils.TreeNode
+import tech.hanfeng.algorithms.tree.utils.populateTree
+import tech.hanfeng.algorithms.tree.utils.preorderPretty
+
 fun insert(root : TreeNode?, x : Int) : TreeNode {
 
     var newNode = TreeNode(x)
@@ -45,21 +49,3 @@ fun main() {
     preorderPretty(bst)
 }
 
-fun populateTree() : TreeNode {
-    var bst = insert(null, 44)
-    bst = insert(bst, 17)
-    bst = insert(bst, 88)
-    bst = insert(bst, 8)
-    bst = insert(bst, 32)
-    bst = insert(bst, 28)
-    bst = insert(bst, 29)
-    bst = insert(bst, 65)
-    bst = insert(bst, 54)
-    bst = insert(bst, 82)
-    bst = insert(bst, 76)
-    bst = insert(bst, 68)
-    bst = insert(bst, 80)
-    bst = insert(bst, 97)
-    bst = insert(bst, 93)
-    return bst
-}

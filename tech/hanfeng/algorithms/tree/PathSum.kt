@@ -1,5 +1,8 @@
 package tech.hanfeng.algorithms.tree
 
+import tech.hanfeng.algorithms.tree.utils.TreeNode
+import tech.hanfeng.algorithms.tree.utils.populateTree
+import tech.hanfeng.algorithms.tree.utils.preorderPretty
 import java.util.*
 
 fun hasPathSumR(root : TreeNode?, sum : Int) : Boolean {

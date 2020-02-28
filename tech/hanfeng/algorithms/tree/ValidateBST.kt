@@ -1,5 +1,8 @@
 package tech.hanfeng.algorithms.tree
 
+import tech.hanfeng.algorithms.tree.utils.TreeNode
+import tech.hanfeng.algorithms.tree.utils.populateTree
+
 var prevVal = Integer.MIN_VALUE
 
 fun isValidateBST(root : TreeNode?) : Boolean {

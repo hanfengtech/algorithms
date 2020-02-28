@@ -1,4 +1,4 @@
-package tech.hanfeng.algorithms.tree
+package tech.hanfeng.algorithms.tree.utils
 
 class TreeNode(var value : Int) {
     var left : TreeNode? = null

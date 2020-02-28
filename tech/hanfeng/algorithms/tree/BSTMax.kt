@@ -1,5 +1,8 @@
 package tech.hanfeng.algorithms.tree
 
+import tech.hanfeng.algorithms.tree.utils.TreeNode
+import tech.hanfeng.algorithms.tree.utils.populateTree
+
 fun bstMax(root : TreeNode?) : Int {
 
     if (root == null) return Int.MAX_VALUE

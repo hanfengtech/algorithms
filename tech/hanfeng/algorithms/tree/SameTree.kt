@@ -1,5 +1,8 @@
 package tech.hanfeng.algorithms.tree
 
+import tech.hanfeng.algorithms.tree.utils.TreeNode
+import tech.hanfeng.algorithms.tree.utils.populateTree
+
 fun isSameTree(p : TreeNode?, q : TreeNode?) : Boolean {
     if (p == null && q == null) return true
 

@@ -1,5 +1,9 @@
 package tech.hanfeng.algorithms.tree
 
+import tech.hanfeng.algorithms.tree.utils.TreeNode
+import tech.hanfeng.algorithms.tree.utils.popoluateSymmetricTree
+import tech.hanfeng.algorithms.tree.utils.populateTree
+
 fun isSymmetric(root : TreeNode?) : Boolean {
 
     fun isMirror(p : TreeNode?, q: TreeNode?) : Boolean {
@@ -15,19 +19,6 @@ fun isSymmetric(root : TreeNode?) : Boolean {
     if (root == null) return true
 
     return isMirror(root.left, root.right)
-}
-
-fun popoluateSymmetricTree() : TreeNode {
-
-    var node = TreeNode(1)
-    node.left = TreeNode(2)
-    node.left!!.left = TreeNode(3)
-    node.left!!.right = TreeNode(4)
-    node.right = TreeNode(2)
-    node.right!!.left = TreeNode(4)
-    node.right!!.right = TreeNode(3)
-
-    return node
 }
 
 fun main() {
