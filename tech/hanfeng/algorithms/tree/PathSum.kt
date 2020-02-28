@@ -11,7 +11,6 @@ fun hasPathSumR(root : TreeNode?, sum : Int) : Boolean {
 }
 
 fun hasPathSum(root: TreeNode, sum : Int) : Boolean {
-    if (root == null) return false
 
     val nodes = LinkedList<TreeNode>()
     val values = LinkedList<Int>()
