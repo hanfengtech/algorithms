@@ -1,6 +1,7 @@
 package tech.hanfeng.algorithms.tree
 
 import tech.hanfeng.algorithms.tree.utils.TreeNode
+import tech.hanfeng.algorithms.tree.utils.populate123Tree
 import kotlin.math.max
 
 fun maxPathSum(root : TreeNode?) : Int {
@@ -20,8 +21,5 @@ fun maxPathSum(root : TreeNode?) : Int {
 }
 
 fun main() {
-    val tree = TreeNode(1)
-    tree.left = TreeNode(2)
-    tree.right = TreeNode(3)
-    print(maxPathSum(tree))
+    print(maxPathSum(populate123Tree()))
 }

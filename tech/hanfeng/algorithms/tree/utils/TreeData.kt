@@ -61,3 +61,11 @@ fun populatePathTree() : TreeNode {
 
     return node
 }
+
+fun populate123Tree() : TreeNode {
+    val tree = TreeNode(1)
+    tree.left = TreeNode(2)
+    tree.right = TreeNode(3)
+
+    return tree
+}
