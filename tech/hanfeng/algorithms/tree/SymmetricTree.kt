@@ -1,7 +1,7 @@
 package tech.hanfeng.algorithms.tree
 
 import tech.hanfeng.algorithms.tree.utils.TreeNode
-import tech.hanfeng.algorithms.tree.utils.popoluateSymmetricTree
+import tech.hanfeng.algorithms.tree.utils.populateSymmectricTree
 import tech.hanfeng.algorithms.tree.utils.populateTree
 
 fun isSymmetric(root : TreeNode?) : Boolean {
@@ -25,6 +25,6 @@ fun main() {
 
     var tree = populateTree()
     println(isSymmetric(tree))
-    tree = popoluateSymmetricTree()
+    tree = populateSymmectricTree()
     println(isSymmetric(tree))
 }

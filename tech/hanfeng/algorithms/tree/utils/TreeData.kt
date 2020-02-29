@@ -21,7 +21,7 @@ fun populateTree() : TreeNode {
     return bst
 }
 
-fun popoluateSymmetricTree() : TreeNode {
+fun populateSymmectricTree() : TreeNode {
 
     var node = TreeNode(1)
     node.left = TreeNode(2)
@@ -68,4 +68,25 @@ fun populate123Tree() : TreeNode {
     tree.right = TreeNode(3)
 
     return tree
+}
+
+fun populateCompleteTree() : TreeNode {
+
+    var node = TreeNode(1)
+    node.left = TreeNode(2)
+    node.left!!.left = TreeNode(4)
+    node.left!!.right = TreeNode(5)
+    node.right = TreeNode(3)
+
+    node.right!!.left = TreeNode(6)
+    node.right!!.right = TreeNode(7)
+
+    node.left!!.left!!.left = TreeNode(8)
+    node.left!!.left!!.right = TreeNode(9)
+    node.left!!.right!!.left = TreeNode(10)
+    node.left!!.right!!.right = TreeNode(11)
+
+    node.right!!.left!!.left = TreeNode(12)
+
+    return node
 }

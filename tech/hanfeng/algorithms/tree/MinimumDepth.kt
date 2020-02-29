@@ -1,7 +1,6 @@
 package tech.hanfeng.algorithms.tree
 
 import tech.hanfeng.algorithms.tree.utils.TreeNode
-import tech.hanfeng.algorithms.tree.utils.popoluateSymmetricTree
 import tech.hanfeng.algorithms.tree.utils.populateTree
 import java.util.*
 
