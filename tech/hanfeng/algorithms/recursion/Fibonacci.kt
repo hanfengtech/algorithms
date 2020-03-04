@@ -1,7 +1,9 @@
 package tech.hanfeng.algorithms.recursion
 
+// O(1.4 ^ n)
 fun fib(n : Int) : Int = if (n == 0 || n == 1) n else fib(n - 1) + fib(n - 2)
 
+// O(N)
 fun fibonacci(n : Int) : Int {
     if (n == 0 || n == 1) return n
     var result = 1
