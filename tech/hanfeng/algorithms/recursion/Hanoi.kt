@@ -15,7 +15,7 @@ fun hanoi(n : Int) {
         }
     }
 
-    helper(3, 1, 2,3)
+    helper(n, 1, 2,3)
 }
 
 fun main() {
