@@ -11,12 +11,13 @@ fun permutations(nums: IntArray) : List<List<Int>> {
     fun helper(slate : IntArray, i : Int) {
         if (slate.size == i) {
             resList.add(slate.toList())
-        } else {
-            for (k in i until slate.size) {
-                slate.swap(i, k)
-                helper(slate, i+1)
-                slate.swap(k, i)
-            }
+            return
+        }
+
+        for (j in i until slate.size) {
+            slate.swap(i, j)
+            helper(slate, i + 1)
+            slate.swap(j, i)
         }
     }
 

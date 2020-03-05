@@ -11,12 +11,13 @@ fun subsetsR(nums: IntArray): List<List<Int>> {
     fun helper(S : IntArray, i : Int, slate : LinkedList<Int>) {
         if (i == S.size) {
             resList.add(slate.toList())
-        } else {
-            slate.add(S[i])
-            helper(S, i + 1, slate) // include
-            slate.removeLast()
-            helper(S, i + 1, slate) // exclude
+            return
         }
+
+        slate.add(S[i])
+        helper(S, i + 1, slate) // include
+        slate.removeLast()
+        helper(S, i + 1, slate) // exclude
     }
 
     helper(nums, 0, LinkedList())
@@ -29,17 +30,16 @@ fun subsetsR(nums: IntArray): List<List<Int>> {
  */
 fun subsets(nums: IntArray): List<List<Int>>? {
     val resList = ArrayList<List<Int>>()
-    fun helper(nums: IntArray, start: Int, slate: LinkedList<Int>) {
+    fun helper(start: Int, slate: LinkedList<Int>) {
         resList.add(slate.toList())
-        println(slate)
         for (i in start until nums.size) {
             slate.add(nums[i])
-            helper( nums, i + 1, slate)
+            helper(i + 1, slate)
             slate.removeLast()
         }
     }
 
-    helper(nums, 0, LinkedList())
+    helper(0, LinkedList())
     return resList
 }
 

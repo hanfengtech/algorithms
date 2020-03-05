@@ -9,22 +9,21 @@ fun letterPermutation(S: String) : List<String> {
     fun helper(slate : StringBuilder, i : Int) {
         if (i == S.length) {
             resList.add(slate.toString())
-        } else {
-            if (S[i].isDigit()) {
-                slate.append(S[i])
-                helper(slate, i + 1)
-                slate.removeLast()
-                var temp = 0
-                temp++
-            } else {
-                slate.append(S[i].toLowerCase())
-                helper(slate, i + 1)
-                slate.removeLast()
+            return
+        }
 
-                slate.append(S[i].toUpperCase())
-                helper(slate, i + 1)
-                slate.removeLast()
-            }
+        if (S[i].isDigit()) {
+            slate.append(S[i])
+            helper(slate, i + 1)
+            slate.removeLast()
+        } else {
+            slate.append(S[i].toLowerCase())
+            helper(slate, i + 1)
+            slate.removeLast()
+
+            slate.append(S[i].toUpperCase())
+            helper(slate, i + 1)
+            slate.removeLast()
         }
     }
 
