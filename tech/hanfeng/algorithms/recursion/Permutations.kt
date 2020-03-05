@@ -2,6 +2,10 @@ package tech.hanfeng.algorithms.recursion
 
 import kotlin.collections.ArrayList
 
+/*
+ Permutations without repetitions
+ Swap the integer that has bean already process and recursively call the smaller set of the problem
+ */
 fun permutations(nums: IntArray) : List<List<Int>> {
     val resList = ArrayList<List<Int>>()
     fun helper(slate : IntArray, i : Int) {
