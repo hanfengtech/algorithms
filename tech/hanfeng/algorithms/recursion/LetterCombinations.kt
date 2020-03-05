@@ -16,10 +16,8 @@ fun letterCombination(digits : String) : List<String> {
 
     fun helper(slate : StringBuilder, i : Int) {
         if (i == digits.length) {
-            if (slate.isNotEmpty()) {
-                resList.add(slate.toString())
-                return
-            }
+            resList.add(slate.toString())
+            return
         }
         val letters = map[digits[i]]
         if (letters != null) {
