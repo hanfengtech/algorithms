@@ -2,7 +2,7 @@ package tech.hanfeng.algorithms.recursion
 
 /*
  *  Full tree
- *  Total Steps = 2 ^ N - 1     
+ *  Total Steps = 2 ^ N - 1
  */
 fun hanoi(n : Int) {
     fun helper(n : Int, src : Int, dst : Int, aux : Int) {
