@@ -1,0 +1,31 @@
+package tech.hanfeng.algorithms.recursion
+
+import kotlin.collections.ArrayList
+
+fun permutations(nums: IntArray) : List<List<Int>> {
+    val resList = ArrayList<List<Int>>()
+    fun helper(slate : IntArray, i : Int) {
+        if (slate.size == i) {
+            resList.add(slate.toList())
+        } else {
+            for (k in i until slate.size) {
+                slate.swap(i, k)
+                helper(slate, i+1)
+                slate.swap(k, i)
+            }
+        }
+    }
+
+    helper(nums, 0)
+    return resList
+}
+
+fun IntArray.swap(i : Int, j : Int) {
+    val tmp = this[i]
+    this[i] = this[j]
+    this[j] = tmp
+}
+
+fun main() {
+    println(permutations(intArrayOf(1,2,3)))
+}
