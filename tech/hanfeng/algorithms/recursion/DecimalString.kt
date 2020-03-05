@@ -3,7 +3,7 @@ package tech.hanfeng.algorithms.recursion
 /*
  Permutation of decimal with given number of positions
  */
-fun permutation(n : Int) {
+fun decimalString(n : Int) {
 
     fun helper(slate : String, n : Int) {
         if (n == 0) {
@@ -19,5 +19,5 @@ fun permutation(n : Int) {
 }
 
 fun main() {
-    permutation(2)
+    decimalString(2)
 }
