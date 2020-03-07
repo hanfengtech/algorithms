@@ -65,5 +65,6 @@ fun twoSum2(nums: IntArray, target: Int): IntArray {
  */
 fun main() {
     println(twoSum2(intArrayOf(2, 7, 11, 15), 9).contentToString())
+    println(twoSum(intArrayOf(2, 7, 11, 15), 26).contentToString())
     println(twoSum(intArrayOf(2, 7, 11, 15), 30).contentToString())
 }
