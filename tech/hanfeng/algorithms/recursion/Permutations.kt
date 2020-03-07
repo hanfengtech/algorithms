@@ -32,5 +32,5 @@ fun IntArray.swap(i : Int, j : Int) {
 }
 
 fun main() {
-    println(permutations(intArrayOf(1,2,3)))
+    println(permutations(intArrayOf(1,2,3,4)))
 }
