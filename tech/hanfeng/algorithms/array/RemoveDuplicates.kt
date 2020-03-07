@@ -34,4 +34,5 @@ fun main() {
     var nums = intArrayOf(1,1,2)
     println(removeDuplicates(nums))
     println(nums.contentToString())
+    println(removeDuplicates(intArrayOf(1,1,2,2,4,4,5,5,5,6,7)))
 }
