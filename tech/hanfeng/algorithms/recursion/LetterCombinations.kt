@@ -4,7 +4,10 @@ fun letterCombination(digits : String) : List<String> {
     val resList = ArrayList<String>()
     if (digits.isEmpty()) return resList
 
-    val map = mapOf('2' to arrayOf("a", "b", "c"),
+    val map = mapOf(
+            '0' to arrayOf("0"),
+            '1' to arrayOf("1"),
+            '2' to arrayOf("a", "b", "c"),
             '3' to arrayOf("d", "e", "f"),
             '4' to arrayOf("g", "h", "i"),
             '5' to arrayOf("j", "k", "l"),
@@ -34,5 +37,5 @@ fun letterCombination(digits : String) : List<String> {
 }
 
 fun main() {
-    println(letterCombination("23"))
+    println(letterCombination("0123"))
 }
