@@ -14,7 +14,7 @@ Examples:
 [3, 4, 5, 6, 1021, 1022] -> “3-6, 1021-1022”
 
 */
-fun findRange(nums : IntArray) : String {
+fun findRange0(nums : IntArray) : String {
     var sb = StringBuilder()
     if (nums.isEmpty()) return String()
 
@@ -52,8 +52,38 @@ fun findRange(nums : IntArray) : String {
     return sb.toString()
 }
 
+fun findRange(nums : IntArray) : String {
+    if (nums.isEmpty()) return String()
+    var sb = StringBuilder()
+    var start = 0
+    var end = 0
+    var value = nums[0]
+    sb.append(value)
+
+    for (i in 1 until nums.size){
+        if (nums[i] == value + 1) {
+            end++
+            value++
+            if (i == nums.size - 1) {
+                sb.append("-${nums[end]}")
+            }
+        } else {
+            if (end > start) {
+                sb.append("-${nums[end]}")
+            }
+            sb.append(", ")
+            start = i
+            end = i
+            value = nums[i]
+            sb.append(value)
+        }
+    }
+
+    return sb.toString()
+}
+
 fun main(args: Array<String>) {
-    println(findRange(intArrayOf(0,1,2,3,8)))
+    println(findRange(intArrayOf(0,1,2,3,8,9)))
     println(findRange(intArrayOf(3,4,8)))
     println(findRange(intArrayOf(1,5,8,10)))
     println(findRange(intArrayOf(3, 4, 5, 6, 1021, 1022)))
