@@ -2,48 +2,11 @@ package tech.hanfeng.algorithms.recursion
 
 import java.util.*
 
-fun ladderLengthC(beginWord : String, endWord : String, wordDict : List<String>) : Int {
-    val queue = LinkedList<String>()
-    queue.add(beginWord)
-    var distance = 1
-    var wordSet = wordDict.toHashSet()
-
-    while (queue.isNotEmpty()) {
-        val word = queue.poll()
-
-        if (word == endWord) {
-            return distance
-        }
-
-        val arr = word.toCharArray()
-        for (i in word.indices) {
-            for (c in 'a' .. 'z') {
-                val tmp = arr[i]
-                if (arr[i] != c) {
-                     arr[i] = c
-                }
-
-                val newWord = String(arr)
-                if (wordSet.contains(newWord)) {
-                    queue.add(newWord)
-                    wordSet.remove(newWord)
-                }
-                arr[i] = tmp
-            }
-        }
-
-        distance++
-    }
-
-    return 0
-}
-
-
 fun ladderLength(beginWord : String, endWord : String, wordList : List<String>) : Int {
     var reached = HashSet<String>()
     reached.add(beginWord)
     var distance = 1
-    var wordSet = wordList  .toHashSet()
+    var wordSet = wordList.toHashSet()
 
     while (!reached.contains(endWord)) {
         var levelSet = HashSet<String>()
