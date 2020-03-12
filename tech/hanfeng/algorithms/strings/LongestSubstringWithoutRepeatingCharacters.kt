@@ -45,9 +45,10 @@ fun longestSubstringWithoutRepeatingCharacters(str : String) : Int {
     val chPos = IntArray(128){ -1 }
     var ans = Int.MIN_VALUE
     var i = 0
-
+    var index :Int
+    
     for (j in str.indices) {
-        val index = str[j].toInt()
+        index = str[j].toInt()
         if (chPos[index] != -1) {
             i = max(chPos[index] + 1, i)
         }
