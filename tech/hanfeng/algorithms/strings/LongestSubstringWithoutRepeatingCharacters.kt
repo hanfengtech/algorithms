@@ -46,7 +46,7 @@ fun longestSubstringWithoutRepeatingCharacters(str : String) : Int {
     var ans = Int.MIN_VALUE
     var i = 0
     var index :Int
-    
+
     for (j in str.indices) {
         index = str[j].toInt()
         if (chPos[index] != -1) {
