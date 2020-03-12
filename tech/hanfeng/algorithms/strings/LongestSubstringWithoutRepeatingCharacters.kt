@@ -40,18 +40,21 @@ fun longestSubstringWithoutRepeatingCharactersMap(str : String) : Int {
  *
  */
 fun longestSubstringWithoutRepeatingCharacters(str : String) : Int {
-    if (str.isBlank()) return 0
+    if (str.isEmpty()) return 0
 
-    val chars = IntArray(128) { -1 }
-    var ans = 0
+    val chPos = IntArray(128){ -1 }
+    var ans = Int.MIN_VALUE
     var i = 0
+
     for (j in str.indices) {
-        if (chars[str[j].toInt()] != -1) {
-            i = max(chars[str[j].toInt()] + 1, i)
+        val index = str[j].toInt()
+        if (chPos[index] != -1) {
+            i = max(chPos[index] + 1, i)
         }
         ans = max(ans, j - i + 1)
-        chars[str[j].toInt()] = j
+        chPos[index] = j
     }
+
     return ans
 }
 
