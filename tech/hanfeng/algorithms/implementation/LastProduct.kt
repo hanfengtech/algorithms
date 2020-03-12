@@ -40,15 +40,15 @@ class LastProduct {
 
         values.offer(x)
         if (x == 0) {   // has zeros
-            zeros = values.size
-            product = 1
+            zeros = values.size   // use size as the position of the zeros in the queue started with index 1
+            product = 1           // reset both product and max
             max = 0
         } else {        // no zeros
             product = try {
-                Math.multiplyExact(product, x)
+                Math.multiplyExact(product, x)    // handles overflow
             } catch (ae: ArithmeticException) {
-                max = values.size
-                1
+                max = values.size    // use the size as the position of the max in queue started with index 1
+                1                    // reset the product
             }
         }
     }
