@@ -1,5 +1,7 @@
 package tech.hanfeng.algorithms.strings
 
+import java.lang.Exception
+
 fun strStr(haystack : String, needle : String) : Int {
     for (i in 0 .. haystack.length) {
         for (j in 0 .. needle.length) {
@@ -11,13 +13,11 @@ fun strStr(haystack : String, needle : String) : Int {
                 return -1
             }
 
-            val a = needle[j]
-            val b = haystack[i + j]
-            if (a != b)
+            if (needle[j] != haystack[i + j])
                 break
         }
     }
-    return 0
+    throw Exception("Should not be here!")
 }
 
 fun main() {
