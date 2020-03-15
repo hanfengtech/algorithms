@@ -24,7 +24,7 @@ fun romanToInt(s: String) : Int {
 }
 
 fun main() {
-//    println(romanToInt("III"))
+    println(romanToInt("III"))
     println(romanToInt("IV"))
     println(romanToInt("IX"))
     println(romanToInt("LVIII"))
