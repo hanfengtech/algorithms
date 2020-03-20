@@ -1,15 +1,10 @@
 package tech.hanfeng.algorithms.strings
 
 fun reverseWords(s : String) : String {
-
     var arr = s.toCharArray()
-
     val str = cleanSpaces(arr)
-
     arr = str.reversed().toCharArray()
-
     reverseWord(arr)
-
     return String(arr)
 }
 
