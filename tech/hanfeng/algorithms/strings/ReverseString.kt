@@ -15,8 +15,19 @@ fun swap(a : CharArray, i : Int, j : Int) {
     a[j] = tmp
 }
 
+fun reverseString(s : String) : String {
+
+    val arr = s.toCharArray()
+
+    reverseString(arr)
+
+    return String(arr)
+}
+
 fun main() {
     val arr = charArrayOf('c', 'a', 't')
     reverseString(arr)
     println(arr.contentToString())
+
+    println(reverseString("hello"))
 }
