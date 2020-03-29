@@ -1,124 +1,70 @@
 package tech.hanfeng.algorithms.implementation
 
-class MyLinkedList() {
+class MyLinkedList {
 
     /** Initialize your data structure here. */
 
-    class Node(num : Int) {
-        var `val` : Int = num
-        var next : Node? = null
-    }
+    class Node(var `val` : Int, var next : Node? = null)
 
-    var head : Node? = null
+    var headNode = Node(0)  // dummy header node
+    var size = 0
+
+    fun getNode(index : Int) : Node? {
+        if (index < 0 || index >= size) return null
+        var i = 0
+        var cur = headNode
+
+        while (i++ <= index) {
+            cur = cur.next!!
+        }
+        return cur
+    }
 
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     fun get(index: Int): Int {
-        if (index < 0 || head == null) return -1
-
-        var cur : Node? = head
-
-        for (i in 0 until index) {
-
-            if (cur == null) {
-                return -1
-            }
-
-            cur = cur.next
-        }
-
-        return cur?.`val` ?: -1
+        return getNode(index)?.`val` ?: -1
     }
 
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     fun addAtHead(`val`: Int) {
-        if (head == null) {
-            head = Node(`val`)
-        } else {
-            var newHead = Node(`val`)
-            newHead.next = head
-            head = newHead
-        }
+        addAtIndex(0, `val`)
     }
 
     /** Append a node of value val to the last element of the linked list. */
     fun addAtTail(`val`: Int) {
-        if (head == null) {
-            head = Node(`val`)
-            return
-        }
-
-        var cur : Node? = head
-        while (cur!!.next != null) {
-            cur = cur.next
-        }
-
-        cur.next = Node(`val`)
+        addAtIndex(size, `val`)
     }
 
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     fun addAtIndex(index: Int, `val`: Int) {
-        if (index < 0) return
+        if (index < 0 || index > size) return
 
-        if (index == 0) {
-            addAtHead(`val`)
-            return
-        }
-
-        var cur : Node? = head
-        var i = 0
-
-        while (cur != null && i < index) {
-            if (i == index - 1) {
-                var newNode = Node(`val`)
-                newNode.next = cur.next
-                cur.next = newNode
-                return
-            }
-
-            if (cur.next == null && i == index) {
-                cur.next = Node(`val`)
-            }
-
-            i++
-            cur = cur.next
-        }
+        var newNode = Node(`val`)
+        val prev = if (index == 0) headNode else getNode(index - 1)
+        newNode.next = prev!!.next
+        prev!!.next = newNode
+        size++
     }
 
     /** Delete the index-th node in the linked list, if the index is valid. */
     fun deleteAtIndex(index: Int) {
-        if (index < 0 || head == null) return
-
-        if (index == 0) {
-            head = head!!.next
-            return
-        }
-
-        var cur : Node? = head
-        var i = 0
-
-        while (cur != null && i < index) {
-            if (i++ == index - 1) {
-                if (cur.next != null) {
-                    cur.next = cur!!.next!!.next
-                } else {
-                    cur.next = null
-                }
-            }
-
-            cur = cur.next
-        }
+        if (index < 0 || index >= size) return
+        val prev = if (index == 0) headNode else getNode(index - 1)
+        prev!!.next = prev!!.next!!.next
+        size--
     }
 
     override fun toString() : String {
         val sb = StringBuilder()
 
-        var cur = head
+        var cur = headNode.next
 
         while (cur != null) {
             sb.append(cur.`val`)
             if (cur.next != null) {
                 sb.append(" -> ")
             }
+
             cur = cur.next
         }
 
