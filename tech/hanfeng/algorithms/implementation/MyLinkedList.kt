@@ -6,11 +6,14 @@ class MyLinkedList {
 
     class Node(var `val` : Int, var next : Node? = null)
 
-    var headNode = Node(0)  // dummy header node
-    var size = 0
+    private var headNode = Node(0)  // dummy header node
+    private var size = 0
 
-    fun getNode(index : Int) : Node? {
-        if (index < 0 || index >= size) return null
+    private fun getNode(index : Int) : Node? {
+        if (index < 0 || index >= size) {
+            return null
+        }
+
         var i = 0
         var cur = headNode
 
@@ -37,20 +40,25 @@ class MyLinkedList {
 
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     fun addAtIndex(index: Int, `val`: Int) {
-        if (index < 0 || index > size) return
+        if (index < 0 || index > size) {
+            return
+        }
 
-        var newNode = Node(`val`)
+        val newNode = Node(`val`)
         val prev = if (index == 0) headNode else getNode(index - 1)
         newNode.next = prev!!.next
-        prev!!.next = newNode
+        prev.next = newNode
         size++
     }
 
     /** Delete the index-th node in the linked list, if the index is valid. */
     fun deleteAtIndex(index: Int) {
-        if (index < 0 || index >= size) return
+        if (index < 0 || index >= size) {
+            return
+        }
+
         val prev = if (index == 0) headNode else getNode(index - 1)
-        prev!!.next = prev!!.next!!.next
+        prev!!.next = prev.next!!.next
         size--
     }
 
@@ -90,19 +98,20 @@ class MyLinkedList {
  */
 fun main() {
     var obj = MyLinkedList()
-    var param_1 = obj.get(1)
+    var result = obj.get(1)
+    println(result)
     obj.addAtHead(1)
     println(obj)
     obj.addAtTail(3)
     println(obj)
     obj.addAtIndex(1,2)
     println(obj)
-    param_1 = obj.get(1)
-    println(param_1)
+    result = obj.get(1)
+    println(result)
     println(obj)
     obj.deleteAtIndex(1)
-    param_1 = obj.get(1)
-    println(param_1)
+    result = obj.get(1)
+    println(result)
     println(obj)
 
     obj = MyLinkedList()
