@@ -1,5 +1,7 @@
 package tech.hanfeng.algorithms.list.utils
 
+import tech.hanfeng.algorithms.list.Node
+
 fun printList(node : ListNode?) {
     if (node == null)
         return
