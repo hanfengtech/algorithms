@@ -21,45 +21,40 @@ fun printList(node : RandomNode?) {
 }
 
 fun deepCopy(head : RandomNode?) : RandomNode? {
-    if (head == null) {
+    if (head == null)
         return null
-    }
 
-    var hashMap = HashMap<RandomNode, RandomNode>()
-
+    val hashMap = HashMap<RandomNode, RandomNode>()
     var cur = head
-    var dummyHead = RandomNode(0)
-    var curCopy = dummyHead
 
     while(cur != null) {
-        curCopy.next = RandomNode(cur.`val`)
-        hashMap[cur!!] = curCopy.next!!
+        hashMap[cur] = RandomNode(cur.`val`)
         cur = cur.next
-        curCopy = curCopy.next!!
     }
 
     cur = head
-
     while (cur != null) {
-        if (cur.random != null) {
-            curCopy = hashMap[cur]!!
-            curCopy.random = hashMap[cur.random!!]
-        }
+        if (cur.next != null)
+            hashMap[cur]?.next = hashMap[cur.next!!]
+
+        if (cur.random != null)
+            hashMap[cur]?.random = hashMap[cur.random!!]
+
         cur = cur.next
     }
 
-    return dummyHead.next
+    return hashMap[head]
 }
 
 fun main() {
-    var node = RandomNode(1)
-    var node2 = RandomNode(2)
+    val node = RandomNode(1)
+    val node2 = RandomNode(2)
     node.random = node2
     node2.random = node2
 
     node.next = node2
 
-    var node3 = RandomNode(1)
+    val node3 = RandomNode(1)
 
     printList(deepCopy(node))
     printList(deepCopy(null))
