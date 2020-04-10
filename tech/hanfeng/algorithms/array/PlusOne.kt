@@ -1,41 +1,18 @@
 package tech.hanfeng.algorithms.array
 
-import java.util.*
-
 fun plusOne(digits : IntArray): IntArray {
-    var carry = 0
-    var n = digits.size - 1
-
-    for(i in n downTo 0) {
-        var sum = digits[i]
-        sum += carry
-
-        if (i == n) {
-            sum += 1
-        }
-
-        if (sum == 10) {
-            carry = 1
-            sum = 0
-        } else {
-            carry = 0
-        }
-
-        digits[i] = sum
-
-        if (carry == 0) {
+    var n = digits.size
+    for(i in n - 1 downTo 0) {
+        if (digits[i] < 9) {
+            digits[i]++
             return digits
         }
+        digits[i] = 0
     }
 
-    if (carry == 1) {
-        var result = IntArray(digits.size + 1)
-        result[0] = 1
-        Arrays.copyOfRange(digits, 1, result.size)
-        return result
-    }
-
-    return digits
+    var result = IntArray(n + 1) { 0 }
+    result[0] = 1
+    return result
 }
 
 fun main() {
