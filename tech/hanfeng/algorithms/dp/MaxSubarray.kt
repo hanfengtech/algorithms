@@ -3,7 +3,7 @@ package tech.hanfeng.algorithms.dp
 fun maxSubArray(A : IntArray) : Int {
     var n = A.size
 
-    val dp = IntArray(n) {0}
+    val dp = IntArray(n)
     dp[0] = A[0]
     var max = dp[0]
 
