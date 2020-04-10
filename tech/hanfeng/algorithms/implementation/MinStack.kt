@@ -20,10 +20,6 @@ class MinStack {
         if (stack.size > 0) {
             if (stack.pop() == min)
                 min = stack.pop()
-
-            if (stack.size == 0) {
-                min = Integer.MAX_VALUE
-            }
         }
     }
 
