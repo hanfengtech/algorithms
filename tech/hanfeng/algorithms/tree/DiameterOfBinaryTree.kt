@@ -11,8 +11,8 @@ fun diameterOfBinaryTree(root : TreeNode?) : Int {
     fun helper(node : TreeNode?) : Int {
         if (node == null) return 0
 
-        val l = helper(node?.left)
-        val r = helper(node?.right)
+        val l = helper(node.left)
+        val r = helper(node.right)
 
         diameter = Math.max(diameter, l + r + 1)
 
@@ -20,7 +20,7 @@ fun diameterOfBinaryTree(root : TreeNode?) : Int {
     }
 
     helper(root)
-    return diameter 
+    return diameter
 }
 
 fun main() {
