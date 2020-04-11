@@ -14,6 +14,20 @@ fun maxSubArray(A : IntArray) : Int {
     return max
 }
 
+fun maxSubArrayS(nums: IntArray) : Int {
+    var n = nums.size
+
+    var max = nums[0]
+    var localMax = max
+
+    for (i in 1 until n) {
+        localMax = nums[i] + if (localMax > 0) localMax else 0
+        max = Math.max(max, localMax)
+    }
+    return max
+}
+
 fun main() {
     println(maxSubArray(intArrayOf(-2,1,-3,4,-1,2,1,-5,4)))
+    println(maxSubArrayS(intArrayOf(-2,1,-3,4,-1,2,1,-5,4)))
 }
