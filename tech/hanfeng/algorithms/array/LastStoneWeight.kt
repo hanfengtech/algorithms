@@ -22,18 +22,18 @@ fun lastStoneWeight(stones : IntArray) : Int {
 
 fun lastStoneWeightHeap(stones : IntArray) : Int {
     // val queue = PriorityQueue<Int>{ a, b -> a - b}   // min heap
-    val queue = PriorityQueue<Int>{ a, b -> b - a}   // max heap
+    val maxHeap = PriorityQueue<Int>{ a, b -> b - a}   // max heap
     for (s in stones) {
-        queue.offer(s)
+        maxHeap.offer(s)
     }
 
-    while (queue.isNotEmpty()) {
-        val x = queue.poll()
-        if (queue.isEmpty())
+    while (maxHeap.isNotEmpty()) {
+        val x = maxHeap.poll()
+        if (maxHeap.isEmpty())
             return x
-        val y = queue.poll()
+        val y = maxHeap.poll()
         if (x == y) continue
-        queue.offer(if (x - y > 0) x - y else y - x)
+        maxHeap.offer(if (x - y > 0) x - y else y - x)
     }
 
     return 0
