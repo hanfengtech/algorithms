@@ -4,20 +4,30 @@ import tech.hanfeng.algorithms.tree.utils.TreeNode
 import tech.hanfeng.algorithms.tree.utils.populateTree
 import tech.hanfeng.algorithms.tree.utils.preorderPretty
 
-var prevVal = Integer.MIN_VALUE
+
 
 // In-order travels and remember the previous node value
 fun isValidateBST(root : TreeNode?) : Boolean {
-    if (root == null) return true
 
-    if (!isValidateBST(root.left)) return false
+    if (root != null && root.left == null && root.right == null) return true
 
-    // if left child which is the prev node value greater than curr value, return false
-    if (prevVal >= root.value) return false
+    var prevVal = Integer.MIN_VALUE.toLong() - 1
 
-    prevVal = root.value
+    fun helper(root: TreeNode?) : Boolean {
+        if (root == null) return true
 
-    return isValidateBST(root.right)
+        if (!helper(root.left)) return false
+
+        println("prevVal: $prevVal Node: ${root.value}")
+        // if left child which is the prev node value greater than curr value, return false
+        if (prevVal >= root.value) return false
+
+        prevVal = root.value.toLong()
+
+        return helper(root.right)
+    }
+
+    return helper(root)
 }
 
 fun main() {
@@ -44,4 +54,12 @@ fun main() {
 
     preorderPretty(node)
     println(isValidateBST(node))
+
+
+    node = TreeNode(-2147483648)
+    node.right = TreeNode(Integer.MAX_VALUE)
+
+    println(isValidateBST(node))
+
+
 }
