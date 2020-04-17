@@ -19,6 +19,18 @@ fun isValidParentheses(s : String) : Boolean {
     return stack.isEmpty()
 }
 
+fun isValidParenthesesG(s: String): Boolean {
+    var lo = 0
+    var hi = 0
+    for (c in s.toCharArray()) {
+        lo += if (c == '(') 1 else -1
+        hi += if (c != ')') 1 else -1
+        if (hi < 0) break
+        lo = Math.max(lo, 0)
+    }
+    return lo == 0
+}
+
 fun main() {
     println(isValidParentheses("(()(())())"))
 
