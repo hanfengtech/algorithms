@@ -22,23 +22,23 @@ class BinaryMatrix(var matrix : Array<IntArray>) {
 
 fun leftMostColumnWithOne(binaryMatrix : BinaryMatrix) : Int {
     val dim = binaryMatrix.dimensions()
-    val y = dim!![0]
-    val x = dim[1]
+    val n = dim!![0]
+    val m = dim[1]
 
-    var i = 0
-    var j = x - 1
-    var res = -1
+    var y = 0
+    var x = m - 1
+    var col = -1
 
-    while (i < y && j >= 0) {
-        if (binaryMatrix.get(j, i) == 0) {
-            i++
+    while (y < n && x >= 0) {
+        if (binaryMatrix.get(x, y) == 0) {
+            y++
         } else {
-            res = j
-            j--
+            col = x
+            x--
         }
     }
 
-    return res
+    return col
 }
 
 fun main() {
