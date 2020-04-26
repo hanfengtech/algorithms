@@ -1,4 +1,4 @@
-package tech.hanfeng.algorithms.array
+package tech.hanfeng.algorithms.greedy
 
 fun canJump(A : IntArray) : Boolean {
     var lastPos = A.size - 1
@@ -12,6 +12,6 @@ fun canJump(A : IntArray) : Boolean {
 }
 
 fun main() {
-    println(canJump(intArrayOf(2,3,1,1,4)))
-    println(canJump(intArrayOf(3,2,1,0,4)))
+    println(canJump(intArrayOf(2, 3, 1, 1, 4)))
+    println(canJump(intArrayOf(3, 2, 1, 0, 4)))
 }
