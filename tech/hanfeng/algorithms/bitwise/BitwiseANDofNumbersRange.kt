@@ -1,4 +1,4 @@
-package tech.hanfeng.algorithms
+package tech.hanfeng.algorithms.bitwise
 
 fun rangeBitwiseAnd(m: Int, n: Int): Int {
     var left = m
@@ -13,6 +13,6 @@ fun rangeBitwiseAnd(m: Int, n: Int): Int {
 }
 
 fun main() {
-    println(rangeBitwiseAnd(5,7))
-    println(rangeBitwiseAnd(0,1))
+    println(rangeBitwiseAnd(5, 7))
+    println(rangeBitwiseAnd(0, 1))
 }
