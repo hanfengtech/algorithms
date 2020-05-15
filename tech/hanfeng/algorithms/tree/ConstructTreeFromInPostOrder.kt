@@ -15,20 +15,19 @@ fun buildTreeFromInPostorder(inorder: IntArray, postorder: IntArray): TreeNode? 
 
     inorder.forEachIndexed { index, value -> map[value] = index }
 
-    fun helper(inStart : Int, inEnd : Int, postStart : Int, postEnd : Int) : TreeNode? {
-        if (inStart > inEnd || postStart > postEnd) {
+    fun helper(inStart : Int, inEnd : Int, postEnd : Int) : TreeNode? {
+        if (inStart > inEnd) {
             return null
         }
 
         return TreeNode(postorder[postEnd]).apply {
-            val rIndex = map[value]!!
-            val numberOfLeftNodes = rIndex - inStart
-            left = helper(inStart, rIndex - 1, postStart, postStart + numberOfLeftNodes - 1)
-            right = helper(rIndex + 1, inEnd, postStart + numberOfLeftNodes, postEnd - 1)
+            val rootIndex = map[value]!!
+            right = helper(rootIndex + 1, inEnd, postEnd - 1)
+            left = helper(inStart, rootIndex - 1, postEnd + rootIndex - inEnd - 1)
         }
     }
 
-    return helper(0, inorder.size - 1, 0, postorder.size - 1)
+    return helper(0, inorder.size - 1,postorder.size - 1)
 }
 
 fun main() {
