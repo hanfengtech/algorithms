@@ -10,7 +10,7 @@ fun constructFromPrePost(pre: IntArray, post: IntArray): TreeNode? {
 
     fun helper(preI : Int, postI : Int, size : Int) : TreeNode? {
         if (size == 0) return null
-        var root = TreeNode(pre[preI])
+        val root = TreeNode(pre[preI])
 
         if (size == 1) return root
 
