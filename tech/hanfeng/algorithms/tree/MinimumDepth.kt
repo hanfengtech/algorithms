@@ -8,7 +8,7 @@ fun minDepth(root : TreeNode?) : Int {
     if (root == null) return 0
 
     val q = LinkedList<TreeNode>()
-    q.add(root)
+    q.offer(root)
     var depth = 0
 
     while(q.isNotEmpty()) {
@@ -23,11 +23,11 @@ fun minDepth(root : TreeNode?) : Int {
             if (node.left == null && node.right == null) return depth
 
             if (node.left != null) {
-                q.add(node.left!!)
+                q.offer(node.left!!)
             }
 
             if (node.right != null) {
-                q.add(node.right!!)
+                q.offer(node.right!!)
             }
         }
     }
