@@ -22,9 +22,9 @@ fun multiply(num1 : String, num2 : String) : String {
 
     val sb = StringBuilder()
 
-    for (p in pos) {
-        if (!(sb.isEmpty() && p == 0))
-            sb.append(p)
+    pos.forEach {
+        if (!(sb.isEmpty() && it == 0))
+            sb.append(it)
     }
 
     return if (sb.isNotEmpty()) sb.toString() else "0"
@@ -32,4 +32,5 @@ fun multiply(num1 : String, num2 : String) : String {
 
 fun main() {
     println(multiply("789", "359"))
+    println(multiply("100", "0"))
 }
