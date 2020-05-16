@@ -1,18 +1,20 @@
 package tech.hanfeng.algorithms.dp
 
+data class Activity(var start : Int, var finish : Int)
+
 fun activitySelection(start : IntArray, end : IntArray) : Int {
 
     if (start.isEmpty() || start.size != end.size) return 0
 
-    val activities = ArrayList<Pair<Int, Int>>()
-    start.forEachIndexed { index, value -> activities.add(Pair(value, end[index])) }
-    activities.sortBy { it.second }
+    val activities = ArrayList<Activity>()
+    start.forEachIndexed { index, value -> activities.add(Activity(value, end[index])) }
+    activities.sortBy { it.finish }
 
     var count = 1
     var i = 0
 
     for (j in 1 until activities.size) {
-        if (activities[j].first >= activities[i].second) {
+        if (activities[j].start >= activities[i].finish) {
             count++
             i = j
         }
