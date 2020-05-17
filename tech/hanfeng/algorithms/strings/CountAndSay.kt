@@ -32,6 +32,8 @@ fun countAndSay(n : Int) : String {
 }
 
 fun main() {
+    println(countAndSay(2))
+    println(countAndSay(3))
     println(countAndSay(4))
     println(countAndSay(5))
     println(countAndSay(6))
