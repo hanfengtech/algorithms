@@ -22,5 +22,6 @@ fun main() {
     println(intToRoman(9))
     println(intToRoman(58))
     println(intToRoman(1994))
+    println(intToRoman(5000))
     println(intToRoman(10994))
 }
