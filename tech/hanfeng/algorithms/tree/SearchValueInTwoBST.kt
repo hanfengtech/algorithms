@@ -2,6 +2,7 @@ package tech.hanfeng.algorithms.tree
 
 import tech.hanfeng.algorithms.tree.utils.TreeNode
 import tech.hanfeng.algorithms.tree.utils.populate123Tree
+import tech.hanfeng.algorithms.tree.utils.populateTree
 
 fun searchValueInTwoBST(root1 : TreeNode?, root2 : TreeNode?, target : Int) : Boolean {
     var cur1 = root1
@@ -37,7 +38,7 @@ fun searchValueInTwoBST(root1 : TreeNode?, root2 : TreeNode?, target : Int) : Bo
 }
 
 fun main() {
-    var t1 = populate123Tree()
+    var t1 = populateTree()
     var t2 = populate123Tree()
     println(searchValueInTwoBST(t1,t2, 3))
 }
