@@ -10,9 +10,7 @@ fun sortSML(sizes : CharArray) {
 
     while (i < j) {
         if (sizes[j] == 'S') {
-            var tmp = sizes[i]
-            sizes[i++] = sizes[j]
-            sizes[j] = tmp
+            swap(sizes, i, j)
         }
         j--
     }
@@ -25,16 +23,48 @@ fun sortSML(sizes : CharArray) {
 
     while (i < j) {
         if (sizes[i] == 'L') {
-            var tmp = sizes[j]
-            sizes[j--] = sizes[i]
-            sizes[i] = tmp
+            swap(sizes, i, j)
         }
         i++
     }
 }
 
+fun sortSML2(sizes: CharArray) {
+    var i = 0
+    var j = sizes.size - 1
+
+    while (sizes[i] == 'S' && i < j) {
+        i++
+    }
+
+    while (sizes[j] == 'L' && i < j) {
+        j--
+    }
+
+    var k = i + 1
+
+    while (k < j) {
+        if (sizes[k] == 'S') {
+            swap(sizes, i, k)
+            i++
+        } else if (sizes[k] == 'L') {
+            swap(sizes, j, k)
+            j--
+        } else {
+            k++
+        }
+    }
+}
+
+fun swap(A : CharArray, i : Int, j : Int) {
+    var tmp = A[i]
+    A[i] = A[j]
+    A[j] = tmp
+}
+
+
 fun main() {
     var arr = charArrayOf('S', 'S', 'M', 'L', 'M', 'S', 'L', 'L')
-    sortSML(arr)
+    sortSML2(arr)
     println(arr.contentToString())
 }
