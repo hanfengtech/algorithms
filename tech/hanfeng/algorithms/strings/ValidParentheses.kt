@@ -19,7 +19,7 @@ fun isValidParentheses(s : String) : Boolean {
     return stack.isEmpty()
 }
 
-fun isValidParenthesesG(s: String): Boolean {
+fun isValidParenthesesGreedy(s: String): Boolean {
     var lo = 0
     var hi = 0
     for (c in s.toCharArray()) {
