@@ -3,9 +3,7 @@ package tech.hanfeng.algorithms.array
 import java.util.*
 
 class KthLargestInStream(var k: Int, nums: IntArray) {
-
     val pq = PriorityQueue<Int>()
-
     init {
         nums.forEach {
             addTo(it)
