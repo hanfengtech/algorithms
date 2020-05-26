@@ -57,7 +57,8 @@ fun removeInvalidParentheses(s : String) : List<String> {
 }
 
 fun main() {
-    val list = removeInvalidParentheses("((a)())))b))")
+    var list = removeInvalidParentheses(")()(")
+    list = removeInvalidParentheses("((a)())))b))")
 
     list.forEach{
         println(it)

@@ -53,6 +53,7 @@ fun search(trie : TrieNode, prefix : String) : List<String> {
     helper(cur,  result)
     return resultList
 }
+
 fun main() {
     val result = autoComplete(arrayOf("dog", "dark", "cat", "door", "dodge"), "do")
     result?.forEach {
