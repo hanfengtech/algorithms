@@ -7,8 +7,9 @@ data class Node(var value : Int = 0,  var left : Node? = null,  var right: Node?
 
 fun avgTreeLevel(root : Node?) : List<Int> {
     val resultList = ArrayList<Int>()
-    if (root == null)
+    if (root == null) {
         return resultList
+    }
 
     val q = LinkedList<Node>()
     q.offer(root)
@@ -34,11 +35,10 @@ fun avgTreeLevel(root : Node?) : List<Int> {
 
 fun main() {
     val node = Node()
-    node.value = 1
+    node.value = 4
 
-    node.left = Node(4)
+    node.left = Node(7)
     node.right = Node(9)
 
     println(avgTreeLevel(node))
-
 }
