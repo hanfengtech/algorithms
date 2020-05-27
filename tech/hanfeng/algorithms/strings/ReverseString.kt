@@ -23,10 +23,10 @@ fun reverseString(s : String) : String {
     return String(arr)
 }
 
-fun reverse(s : String) : String {
-    var str = s.toCharArray()
+fun String.reverse() : String {
+    var str = this.toCharArray()
     var i = 0
-    var j = s.length - 1
+    var j = this.length - 1
     while (i < j) {
         val tmp = str[i]
         str[i++] = str[j]
@@ -42,5 +42,5 @@ fun main() {
 
     println(reverseString("hello"))
 
-    println(reverse("Good morning!"))
+    println("Good morning!".reverse())
 }
