@@ -16,12 +16,23 @@ fun swap(a : CharArray, i : Int, j : Int) {
 }
 
 fun reverseString(s : String) : String {
-
     val arr = s.toCharArray()
 
     reverseString(arr)
 
     return String(arr)
+}
+
+fun reverse(s : String) : String {
+    var str = s.toCharArray()
+    var i = 0
+    var j = s.length - 1
+    while (i < j) {
+        val tmp = str[i]
+        str[i++] = str[j]
+        str[j--] = tmp
+    }
+    return String(str)
 }
 
 fun main() {
@@ -30,4 +41,6 @@ fun main() {
     println(arr.contentToString())
 
     println(reverseString("hello"))
+
+    println(reverse("Good morning!"))
 }
