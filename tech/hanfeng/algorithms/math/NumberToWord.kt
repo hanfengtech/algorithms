@@ -1,5 +1,55 @@
 package tech.hanfeng.algorithms.math
 
+val ones = arrayOf("", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine","Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen")
+val tens = arrayOf("", "", "Twenty", "Thirty", "Forty","Fifty", "Sixty", "Seventy", "Eighty", "Ninety")
+val thousands = arrayOf("", " Thousand", " Million", " Billion")
+
+
+fun parseSection(num : Int, builder : StringBuilder) {
+    if (num == 0) return
+
+    if (builder.isNotEmpty()) {
+        builder.append(" ")
+    }
+
+    if (num < 20) {
+        builder.append(ones[num])
+    } else if (num < 100) {
+        builder.append(tens[num / 10])
+        parseSection(num % 10, builder)
+    } else if (num < 1000) {
+        builder.append(ones[num / 100])
+        builder.append(" Hundred")
+        parseSection(num % 100, builder)
+    }
+}
+
+fun buildString(builder : StringBuilder, num : Int, sectionIndex : Int, hasMoreSection : Boolean) {
+    if (hasMoreSection)
+        buildString(builder,  num / 1000, sectionIndex + 1, num >= 1000)
+
+    val currSection = num % 1000
+    if (currSection > 0) {
+        parseSection(currSection, builder)
+        builder.append(thousands[sectionIndex])
+    }
+}
+
+fun numberToWords(num : Int) : String {
+    if (num == 0) return "Zero"
+    val result = StringBuilder()
+    buildString(result, num, 0, num >= 1000)
+    return result.toString()
+}
+
+fun main() {
+    println(numberToWords(123))
+    println(numberToWords(12345))
+    println(numberToWords(1234567))
+    println(numberToWords(1234567891))
+}
+
+
 fun one(num: Int): String {
     when (num) {
         1 -> return "One"
@@ -75,7 +125,7 @@ fun three(num : Int) : String {
     return result.toString()
 }
 
-fun numberToWords(num : Int) : String {
+fun numberToWords2(num : Int) : String {
     if (num == 0) return "Zero"
 
     val billion = num / 1000000000
@@ -99,11 +149,4 @@ fun numberToWords(num : Int) : String {
         result.append(three(rest))
     }
     return result.toString()
-}
-
-fun main() {
-    println(numberToWords(123))
-    println(numberToWords(12345))
-    println(numberToWords(1234567))
-    println(numberToWords(1234567891))
 }
