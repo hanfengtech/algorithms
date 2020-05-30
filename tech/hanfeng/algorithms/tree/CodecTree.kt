@@ -46,7 +46,7 @@ class Codec {
 
     fun deserialize(data : String) : TreeNode? {
         val dataList = data.split(',')
-        
+
         if (dataList.isEmpty() || data == "") {
             return null
         }
