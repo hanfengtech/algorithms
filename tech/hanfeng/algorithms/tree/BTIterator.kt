@@ -20,6 +20,7 @@ class BTIterator(root: TreeNode?) {
     }
 
     fun next() : Int {
+        if (stack.isEmpty()) throw Exception("No more data!")
         val node = stack.pop()
         var cur = node
 
@@ -35,6 +36,38 @@ class BTIterator(root: TreeNode?) {
     }
 }
 
+class BSTIterator2(var root : TreeNode?) {
+
+    private var stack = LinkedList<TreeNode>()
+
+    init {
+        var cur = root
+        while (cur != null) {
+            stack.push(cur)
+            cur = cur.left
+        }
+    }
+
+    fun next() : Int {
+        if (stack.isEmpty()) throw Exception("No more data")
+        val node = stack.pop()
+        var cur = node
+        if (cur.right != null) {
+            cur = cur.right
+            while (cur != null) {
+                stack.push(cur)
+                cur = cur.left
+            }
+        }
+        return node.value
+    }
+
+    fun hasNext() : Boolean {
+        return stack.isNotEmpty()
+    }
+}
+
+
 fun main() {
     val tree = populateTree()
 
@@ -42,4 +75,9 @@ fun main() {
     while (it.hasNext()) {
         print(" ${it.next()} ")
     }
+
+    println()
+
+    val t = BTIterator(null)
+    println(t.next())
 }
