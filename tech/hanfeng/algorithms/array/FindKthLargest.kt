@@ -20,11 +20,14 @@ fun partition(nums: IntArray, low : Int, high : Int) : Int {
     var index = low
     for (i in low until high) {
         if (nums[i] <= pivot) {
-            nums.swap(i, index)
+            if (i != index)
+                nums.swap(i, index)
             index++
         }
     }
-    nums.swap(index, high)
+
+    if (index != high)
+        nums.swap(index, high)
     return index
 }
 
@@ -35,5 +38,6 @@ fun IntArray.swap(i : Int, j : Int) {
 }
 
 fun main() {
-    println(findKthLargest(intArrayOf(5,7,2,3,4,1,6), 3))
+   // println(findKthLargest(intArrayOf(3,2,3,1,2,4,5,5,6), 4))
+    println(findKthLargest(intArrayOf(3,5,2,3,4,1,6), 3))
 }
