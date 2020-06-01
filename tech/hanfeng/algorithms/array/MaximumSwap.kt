@@ -11,7 +11,7 @@ fun maximumSwap(num : Int) : Int {
         var index = A[i] - '0'
 
         for (j in 9 downTo A[i] - '0') {
-            if (last[j] > i) {
+            if (last[j] > i  && A[i] != A[last[j]]) {
                 swap(A, i, last[j])
                 return Integer.valueOf(String(A))
             }
@@ -23,4 +23,5 @@ fun maximumSwap(num : Int) : Int {
 
 fun main() {
     println(maximumSwap(2359))
+    println(maximumSwap(98368))
 }
