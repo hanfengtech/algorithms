@@ -30,6 +30,16 @@ fun reverseListIt(head : ListNode?) : ListNode? {
     return newHead
 }
 
+
+fun reverseListR(head : ListNode?) : ListNode? {
+    if (head?.next == null) return head
+
+    val newHead = reverseListR(head.next)
+    head.next!!.next = head
+    head.next = null
+    return newHead
+}
+
 fun main() {
 
     var node = ListNode(3)
