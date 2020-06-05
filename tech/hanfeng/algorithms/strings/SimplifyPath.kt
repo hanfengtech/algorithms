@@ -21,5 +21,5 @@ fun simplifyPath(path : String) : String {
 
 fun main() {
     println(simplifyPath("/home/"))
-    println(simplifyPath("/a/./b/../../c/"))
+    println(simplifyPath("/a/./b/../e/../c/"))
 }
