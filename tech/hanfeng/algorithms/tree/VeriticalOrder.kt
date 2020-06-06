@@ -50,5 +50,4 @@ fun main() {
     results.forEach {
         println(it.joinToString())
     }
-
 }
