@@ -63,9 +63,11 @@ fun populatePathTree() : TreeNode {
 }
 
 fun populate123Tree() : TreeNode {
-    val tree = TreeNode(1)
+    val tree = TreeNode(7)
     tree.left = TreeNode(2)
+    tree.left!!.right = TreeNode(6)
     tree.right = TreeNode(3)
+    tree.right!!.left = TreeNode(4)
 
     return tree
 }

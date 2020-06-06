@@ -39,4 +39,3 @@ fun main() {
 
     println(salesPath(n1))
 }
-
