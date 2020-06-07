@@ -9,7 +9,7 @@ package tech.hanfeng.algorithms.graph
             graph[edge[1] - 1].add(edge[0] - 1)
         }
 
-        // do the is biparition 
+        // do the is biparition
         fun dfs(node : Int, color : Int) : Boolean {
             if (colors[node] == 0) {   // not color yet
                 colors[node] = color
