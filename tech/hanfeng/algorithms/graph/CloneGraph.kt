@@ -17,10 +17,10 @@ class CloneGraph {
             return visited[node]
         }
 
-        val cloneNode = Node(node.`val`)
+        val cloneNode = Node(node.`val`)   // clone the node
         visited[node] = cloneNode
 
-        for (neighbor in node.neighbors) {
+        for (neighbor in node.neighbors) {  // clone all neighbors of the node
             cloneNode.neighbors.add(cloneGraph(neighbor)!!)
         }
         return cloneNode
