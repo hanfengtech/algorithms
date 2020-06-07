@@ -2,12 +2,14 @@ package tech.hanfeng.algorithms.dp
 
 class Fibonacci{
 
+    // Recursion
     fun fib(n : Int) : Int {
         if (n == 0) return 0
         if (n == 1) return 1
         return fib(n - 1) + fib(n - 2)
     }
 
+    // Top-down memorization
     fun fibM(n : Int) : Int {
         val cache = IntArray(n + 1) {-1}
         cache[0] = 0
@@ -23,6 +25,7 @@ class Fibonacci{
         return helper(n)
     }
 
+    // Button-up Dynamic Programming
     fun fibDP(n : Int) : Int {
         val dp = IntArray(n + 1)
         dp[0] = 0
@@ -35,6 +38,7 @@ class Fibonacci{
         return dp[n]
     }
 
+    // Optimized space DP
     fun fibDPO(n : Int) : Int {
         var prev = 0
         var curr = 1
