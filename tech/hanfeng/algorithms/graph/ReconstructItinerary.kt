@@ -14,7 +14,7 @@ class ReconstructItinerary {
     val path = LinkedList<String>()
 
     fun findItinerary(tickets: List<List<String>>): List<String> {
-        tickets.forEach{ map.getOrPut(it[0]){ PriorityQueue()}.add(it[1]) }  // construct adj list
+        tickets.forEach{ map.getOrPut(it[0]){ PriorityQueue()}.add(it[1]) }  // construct adj list, only add one since it is unidirected graph
 
         dfs("JFK")   // dfs the graph
         return path
