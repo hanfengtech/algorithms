@@ -55,6 +55,21 @@ class MakeChange {
         }
         return dp[c]
     }
+
+    fun coinChange(coins: IntArray, amount: Int): Int {
+        val max = amount + 1
+        val dp = IntArray(max) { max }
+        dp[0] = 0
+
+        for (i in 1 .. amount) {
+            for (coin in coins) {
+                 if (coin <= i) {
+                     dp[i] = Math.min(dp[i], dp[i - coin] + 1)
+                 }
+            }
+        }
+        return if (dp[amount] > amount) -1 else dp[amount]
+    }
 }
 
 fun main() {
@@ -65,4 +80,9 @@ fun main() {
     println(mc.makeChanges(49))
     println(mc.makeChangesM(49))
     println(mc.makeChangesDP(49))
+
+   // println(mc.coinChange(intArrayOf(1,2,5), 11))
+   // println(mc.coinChange(intArrayOf(2), 3))
+
+    println(mc.coinChange(intArrayOf(186,419,83,408), 6249))
 }
