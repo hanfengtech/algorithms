@@ -30,7 +30,6 @@ fun smallestSubstringOfAllCh(arr: CharArray, str : String) : String {
         val c = str[r++]
         if (map.containsKey(c)) {
             map[c] = map[c]!!.plus(1)
-
             while (containsAll(map)) {
                 val curMinLen = r - l
                 if (curMinLen < minLen) {
@@ -58,6 +57,6 @@ fun containsAll(map : Map<Char, Int>) : Boolean {
 }
 
 fun main() {
-    println(smallestSubstringOfAllCh(charArrayOf('x','y','z'), "xyywzyzyux"))
+    println(smallestSubstringOfAllCh(charArrayOf('x','y','z'), "xyyzwyzyux"))
 
 }
