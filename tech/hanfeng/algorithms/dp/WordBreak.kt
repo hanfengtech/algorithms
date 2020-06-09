@@ -1,8 +1,8 @@
-package tech.hanfeng.algorithms.strings
+package tech.hanfeng.algorithms.dp
 
 // brute force,  recursion, and backtracking
 class WordBreak {
-    
+
     fun wordBreak(s : String, wordDict : List<String>) : Boolean {
         return helper(s, wordDict.toSet(), 0)
     }
