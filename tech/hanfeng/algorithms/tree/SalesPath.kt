@@ -24,6 +24,26 @@ fun salesPath(root : SaleNode?) : Int {
     return min
 }
 
+fun salesPath2(root: SaleNode?) : Int {
+    var min = Int.MAX_VALUE
+
+    fun dfs(node : SaleNode?, sum : Int) {
+        if (node == null) return
+
+        if (node.chidren == null) {
+             min = Math.min(min, sum)
+            return
+        }
+
+        node.chidren?.forEach {
+            dfs(it, it.cost + sum)
+        }
+    }
+
+    dfs(root, 0)
+    return if (min == Int.MAX_VALUE) 0 else min
+}
+
 fun main() {
 
     val l21 = SaleNode(4)
@@ -38,4 +58,6 @@ fun main() {
     val n1 = SaleNode(0, arrayListOf(l11, l13))
 
     println(salesPath(n1))
+    println(salesPath2(n1))
+    println(salesPath2(null))
 }
