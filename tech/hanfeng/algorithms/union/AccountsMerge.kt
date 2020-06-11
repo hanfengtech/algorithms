@@ -1,4 +1,4 @@
-package tech.hanfeng.algorithms.dp
+package tech.hanfeng.algorithms.union
 
 fun accountsMerge(accounts: List<List<String>>) : List<List<String>> {
     val dsu = DSU()
