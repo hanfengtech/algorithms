@@ -6,7 +6,7 @@ fun findTarget(root: TreeNode?, k: Int): Boolean {
 
     var list = ArrayList<Int>()
     inOrder(root, list)
-    
+
     var l = 0
     var r = list.size - 1
 
