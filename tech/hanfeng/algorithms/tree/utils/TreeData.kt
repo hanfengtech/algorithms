@@ -25,11 +25,11 @@ fun populateSymmectricTree() : TreeNode {
 
     var node = TreeNode(1)
     node.left = TreeNode(2)
-    node.left!!.left = TreeNode(3)
-    node.left!!.right = TreeNode(4)
+ //   node.left!!.left = TreeNode(3)
+//    node.left!!.right = TreeNode(4)
     node.right = TreeNode(2)
-    node.right!!.left = TreeNode(4)
-    node.right!!.right = TreeNode(3)
+//    node.right!!.left = TreeNode(4)
+//    node.right!!.right = TreeNode(3)
 
     return node
 }
