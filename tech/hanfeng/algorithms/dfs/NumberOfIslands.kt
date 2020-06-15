@@ -29,7 +29,8 @@ fun numIslands(grid : Array<CharArray>) : Int {
 }
 
 fun main() {
-    val islands = arrayOf(charArrayOf('1','1','0','0','0'),
+    val islands = arrayOf(
+            charArrayOf('1','1','0','0','0'),
             charArrayOf('1','1','0','0','0'),
             charArrayOf('0','0','1','0','0'),
             charArrayOf('0','0','0','1','1'))

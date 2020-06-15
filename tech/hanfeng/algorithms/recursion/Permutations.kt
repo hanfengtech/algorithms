@@ -33,4 +33,29 @@ fun IntArray.swap(i : Int, j : Int) {
 
 fun main() {
     println(permutations(intArrayOf(1,2,3,4)))
+
+    var arr = intArrayOf(1,2,3,4)
+
+    var nums = IntArray(4) { i -> i+1}
+
+    println(arr.joinToString(""))
+}
+
+//  Time:  O(N!)    Space: O(N!)  N! solutions
+fun permute(nums : IntArray) : List<List<Int>> {
+    val res = ArrayList<List<Int>>()
+    fun helper(slate : IntArray, i : Int) {
+        if (slate.size == i) {
+            res.add(slate.toList())
+        } else {
+            for (k in i until slate.size) {
+                slate.swap(i, k)
+                helper(slate, i+1)
+                slate.swap(k,i)
+            }
+        }
+    }
+
+    helper(nums,0)
+    return res
 }
