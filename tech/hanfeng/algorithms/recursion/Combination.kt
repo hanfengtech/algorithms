@@ -30,5 +30,5 @@ fun combine(n: Int, k: Int): List<List<Int>> {
 
 fun main() {
     println(combination(4, 2))
-    println(combine(4, 2))
+    println(combine(4, 3))
 }
