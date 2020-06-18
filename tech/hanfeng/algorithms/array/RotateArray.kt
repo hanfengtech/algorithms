@@ -20,8 +20,18 @@ fun revert(nums: IntArray, start : Int, end : Int) {
     }
 }
 
+fun rotate2(nums: IntArray, k: Int) {
+    var cur = k % nums.size
+    while (cur != 0) {
+        val temp = nums[0]
+        nums[0] = nums[cur]
+        nums[cur] = temp
+        cur = (cur + k) % nums.size
+    }
+}
+
 fun main() {
     var nums = intArrayOf(1,2,3,4,5,6,7)
-    rotate(nums, 3)
+    rotate2(nums, 3)
     println(nums.contentToString())
 }
