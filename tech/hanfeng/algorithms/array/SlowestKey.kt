@@ -40,7 +40,7 @@ fun minimumDivisor(arr: IntArray, threshold: Int): Int {
         divisor++
     } while (sum > threshold)
 
-    arrs divisor - 1
+    return divisor - 1
 }
 
 fun main() {
