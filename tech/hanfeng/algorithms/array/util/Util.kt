@@ -11,9 +11,12 @@ fun printMatrix(M : Array<IntArray>) {
     }
 }
 
-fun printMatrix(M : Array<BooleanArray>) {
+fun printMatrix(M : Array<BooleanArray>, row : String, col : String = row) {
+    println(" #$col".toCharArray().joinToString(","))
+    var rowStr = "#$row"
     for (i in M.indices) {
         for (j in M[i].indices) {
+            if (j == 0) print("${rowStr[i]},")
             if (M[i][j]) {
                 print('T')
             } else {

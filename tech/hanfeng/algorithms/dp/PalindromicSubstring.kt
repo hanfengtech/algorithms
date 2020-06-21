@@ -29,7 +29,7 @@ fun countSubstringsDP(s: String): Int {
         }
     }
 
-    printMatrix(dp)
+    printMatrix(dp, s)
 
     return count
 }
