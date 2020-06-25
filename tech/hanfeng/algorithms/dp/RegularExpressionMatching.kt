@@ -20,7 +20,6 @@ class RegularExpressionMatching {
                 } else if (p[j - 1] == '*') {
                     if (s[i - 1] == p[j - 2] || p[j - 2] == '.') {
                         dp[i][j] = dp[i][j - 1] || dp[i][j - 2] || dp[i - 1][j]    // left, left left, up
-                        // 当*的前一位是'.'， 或者前一位的pc等于sc的话，  *代表1个(dp[i][j - 1])，或者用*消掉c*(dp[i][j - 2]) ， *代表多个(dp[i - 1][j])
                     } else {
                         dp[i][j] = dp[i][j - 2] // 用*消掉c*    //  left left
                     }
