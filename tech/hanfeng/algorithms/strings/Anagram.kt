@@ -1,7 +1,5 @@
 package tech.hanfeng.algorithms.strings
 
-import java.util.*
-
 fun isAnagram(s : String, t : String) : Boolean {
     if (s.length != t.length) return false
 
