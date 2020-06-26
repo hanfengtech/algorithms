@@ -1,4 +1,4 @@
-package tech.hanfeng.algorithms.recursion
+package tech.hanfeng.algorithms.trie
 
 class WordDictionary {
     class TrieNode {

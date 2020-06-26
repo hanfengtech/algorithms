@@ -36,7 +36,7 @@ fun addOperators(num : String, target : Int) : List<String> {
 }
 
 fun main() {
-//    println(addOperators("123", 6).joinToString())
+    println(addOperators("123", 6).joinToString())
     println(addOperators("000", 0).joinToString())
     println(addOperators("3456237490", 9191).joinToString())
 }
