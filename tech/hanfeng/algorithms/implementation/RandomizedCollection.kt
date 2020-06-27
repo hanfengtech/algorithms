@@ -2,37 +2,55 @@ package tech.hanfeng.algorithms.implementation
 
 import java.util.*
 
+class RandomizedCollection {
 
-internal class RandomizedCollection {
-    var list = ArrayList<Int?>()    //  list added element
-    var map = HashMap<Int, ArrayList<Int>>()
-    var rand = Random()
+    data class Node(var value : Int, var index : Int, var nodes : LinkedList<Node> = LinkedList())
+
+    var map = HashMap<Int, Node>()
+    var list = ArrayList<Node>()
+    var random = Random()
 
     fun insert(`val`: Int): Boolean {
-        val exist = map.containsKey(`val`)   // check if val exist
-        list.add(`val`)                      // add val to the list
-        val elements = map.getOrDefault(`val`, ArrayList())     // get the arrayList associate with the number
-        elements.add(list.size - 1)          // add to the last position (index) of the list to the elements list
-        map[`val`] = elements                // push the elements to the map,  all element
-        return !exist                        // if not exist, return true.  Else return false
+        val newNode = Node(`val`, list.size)
+        list.add(newNode)
+        val node = map[`val`]
+        return if (node == null) {
+            map[`val`] = newNode
+            true
+        } else {
+            node.nodes.add(newNode)
+            false
+        }
     }
 
     fun remove(`val`: Int): Boolean {
-        val elements = map[`val`] ?: return false
-        list[elements[0]] = null        // set first index of the element to null.  Means remove the element from the list
-        elements.removeAt(0)      // remove the first element from element list
-        if (elements.isEmpty()) map.remove(`val`)    // if the element list is empty, remove the entry from the map
-        return true
+        val node = map[`val`]
+        return if (node == null) {
+            false
+        } else {
+            var removeNode: Node?
+            if (node.nodes.isEmpty()) {
+                removeNode = node
+                map.remove(removeNode.value)
+            } else {
+                removeNode = node.nodes.removeLast()
+            }
+            val lastNode = list[list.lastIndex]
+            if (removeNode!!.index != lastNode.index) { // swapping the element with the last element
+                lastNode.index = removeNode.index
+                list[removeNode.index] = lastNode
+            }
+            list.removeAt(list.lastIndex)
+            true
+        }
     }
 
-    fun getRandom() : Int {
-        var random: Int = rand.nextInt(list.size)
-        while (list[random] == null) {
-            random = rand.nextInt(list.size)
-        }
-        return list[random]!!
+    fun getRandom(): Int {
+        val randomIdx = random!!.nextInt(list.size)
+        return list[randomIdx].value
     }
 }
+
 
 fun main() {
     val collection = RandomizedCollection()
