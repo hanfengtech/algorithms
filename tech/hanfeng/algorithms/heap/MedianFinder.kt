@@ -81,6 +81,7 @@ class MedianFinder {
     }
 
 
+    // bucket sort for known small set of integer   If known the range of the integer, can improve by a fix number of buckets
     private var totalSize = 0
     private var buckets = LinkedList<LinkedList<Int>>()
 
