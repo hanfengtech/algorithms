@@ -7,6 +7,14 @@ class MedianFinder {
     var minHeap = PriorityQueue<Int>()
     var maxHeap = PriorityQueue<Int>(Collections.reverseOrder())
 
+    fun addNum(num: Int) {
+        minHeap.add(num)
+        maxHeap.add(minHeap.poll())
+        if (minHeap.size < maxHeap.size) minHeap.add(maxHeap.poll())
+    }
+
+    fun findMedian(): Double = if (minHeap.size > maxHeap.size) minHeap.peek().toDouble() else (maxHeap.peek() + minHeap.peek()) / 2.0
+
     fun addNum3(num: Int) {
         if (minHeap.isEmpty() || num >= minHeap.peek()) {
             minHeap.add(num)
@@ -29,17 +37,6 @@ class MedianFinder {
             else -> (maxHeap.peek() + minHeap.peek()) / 2.0
         }
     }
-
-    fun addNum2(num: Int) {
-        minHeap.add(num)
-        maxHeap.add(minHeap.poll())
-        if (maxHeap.size - minHeap.size >= 1) minHeap.add(maxHeap.poll())
-    }
-
-    fun findMedian2(): Double {
-        return if (maxHeap.size == minHeap.size) (maxHeap.peek() + minHeap.peek()) / 2.0 else minHeap.peek().toDouble()
-    }
-
 
     // Multiset solution
     private val tree = TreeMap<Int, Int>()
@@ -89,7 +86,7 @@ class MedianFinder {
         buckets.add(LinkedList())
     }
 
-    fun addNum(num: Int) {
+    fun addNum5(num: Int) {
         var correctRange: MutableList<Int> = LinkedList()
         var targetIndex = 0
 
@@ -122,7 +119,7 @@ class MedianFinder {
     }
 
     // iterate thru all ranges in buckets to find median value
-    fun findMedian(): Double {
+    fun findMedian5(): Double {
         if (totalSize == 0) return 0.0
         val mid1 = totalSize / 2
         val mid2 = mid1 + 1
@@ -153,6 +150,7 @@ fun main() {
     medianFinder.addNum(6)
     medianFinder.addNum(5)
     medianFinder.addNum(10)
+    medianFinder.addNum(20)
     println(medianFinder.findMedian())
 
 }
