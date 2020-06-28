@@ -66,6 +66,6 @@ fun medianSlidingWindowHeap(nums: IntArray, k: Int): DoubleArray {
 
 fun main() {
     println(medianSlidingWindowHeap(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 6).contentToString())
-    println(medianSlidingWindow(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 3).contentToString())
+    println(medianSlidingWindow(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 6).contentToString())
     println(medianSlidingWindow(intArrayOf(2147483647, 2147483647), 2).contentToString())
 }
