@@ -129,7 +129,7 @@ class MedianFinder {
         var first = 0.0
         var second = 0.0
         for (bucket in buckets!!) {
-            if (leftCount < mid1 && mid1 <= leftCount + bucket.size) 
+            if (leftCount < mid1 && mid1 <= leftCount + bucket.size)
                 first = bucket[mid1 - leftCount - 1].toDouble()
             if (leftCount < mid2 && mid2 <= leftCount + bucket.size) {
                 second = bucket[mid2 - leftCount - 1].toDouble()
