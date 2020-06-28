@@ -17,8 +17,8 @@ fun medianSlidingWindow(nums: IntArray, k: Int): DoubleArray {
             left.add(right.pollFirst())
         }
         if (left.size + right.size == k) {
-            val median = if (left.size == right.size) {
-                (nums[left.first()] + nums[right.first()]) / 2.0
+            var median = if (left.size == right.size) {
+                (nums[left.first()].toDouble() + nums[right.first()].toDouble()) / 2
             } else {
                 nums[left.first()].toDouble()
             }
@@ -49,7 +49,7 @@ fun medianSlidingWindowHeap(nums: IntArray, k: Int): DoubleArray {
         }
         if (maxHeap.size == maxHeapSize && minHeap.size == minHeapSize) {
             if (k % 2 == 0) {
-                res[index] = (nums[minHeap.peek()] + nums[maxHeap.peek()]) / 2.0
+                res[index] = (nums[minHeap.peek()].toDouble() + nums[maxHeap.peek()].toDouble()) / 2.0
             } else {
                 res[index] = nums[minHeap.peek()].toDouble()
             }
@@ -66,6 +66,6 @@ fun medianSlidingWindowHeap(nums: IntArray, k: Int): DoubleArray {
 
 fun main() {
     println(medianSlidingWindowHeap(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 6).contentToString())
-    println(medianSlidingWindow(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 6).contentToString())
+ //   println(medianSlidingWindow(intArrayOf(1, 3, -1, -3, 5, 3, 6, 7), 6).contentToString())
     println(medianSlidingWindow(intArrayOf(2147483647, 2147483647), 2).contentToString())
 }
