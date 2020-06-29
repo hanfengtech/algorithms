@@ -28,3 +28,18 @@ fun printMatrix(M : Array<BooleanArray>, row : String, col : String = row) {
         println()
     }
 }
+
+fun printMatrix(M : Array<BooleanArray>) {
+    for (i in M.indices) {
+        for (j in M[i].indices) {
+            if (M[i][j]) {
+                print('T')
+            } else {
+                print('F')
+            }
+            if (j < M[i].size - 1)
+                print(",")
+        }
+        println()
+    }
+}
