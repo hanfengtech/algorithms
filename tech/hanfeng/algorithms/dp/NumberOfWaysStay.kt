@@ -19,7 +19,7 @@ fun numWays(steps: Int, arrLen: Int): Int {
 
 fun main() {
 
-    println(numWays(4,3))
+    println(numWays(4,5))
     println(numWays(6,4))
     println(numWays(5,4))
 
