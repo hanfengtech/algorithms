@@ -2,7 +2,7 @@ package tech.hanfeng.algorithms.dp
 
 class LongestIncreasingPathInMatrix {
     data class Location(var x : Int, var y : Int)
-    var directions = arrayOf(Location(0,1), Location(0,-1), Location(1,0), Location(-1,0))
+    private var directions = arrayOf(Location(0,1), Location(0,-1), Location(1,0), Location(-1,0))
     private var max = 0
     fun longestIncreasingPath(matrix: Array<IntArray>): Int {
         if (matrix.isEmpty() || matrix[0].isEmpty()) return 0
@@ -20,10 +20,9 @@ class LongestIncreasingPathInMatrix {
         var localMax = 0
         for ( (dx, dy) in directions)                       // for each directions dfs to get maximum length
             localMax = maxOf(localMax, findLongestPath(matrix, lengths, i + dx, j + dy, matrix[i][j]))
-
         lengths[i][j] = localMax + 1                        // record the length
         max = maxOf(max, lengths[i][j])                     // update the max
-        return lengths[i][j]                                
+        return lengths[i][j]
     }
 }
 
