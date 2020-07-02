@@ -1,11 +1,12 @@
 package tech.hanfeng.algorithms.array
 
-import java.util.concurrent.ThreadLocalRandom
+import java.util.*
+import kotlin.random.Random
 
 class Solution {
     private lateinit var points : Array<IntArray>
 
-    fun kClosest(points: Array<IntArray>, K: Int): Array<IntArray> {
+    fun kClosest2(points: Array<IntArray>, K: Int): Array<IntArray> {
         /*
         points.sortWith(Comparator{ a, b ->
             when {
@@ -27,7 +28,7 @@ class Solution {
             return
         }
 
-        var k = ThreadLocalRandom.current().nextInt(i,j)
+        var k = Random.nextInt(i,j)
         swap(i,k)
 
         val mid = partition(i, j)
@@ -69,6 +70,26 @@ class Solution {
         points[i][1] = points[j][1]
         points[j][0] = t0
         points[j][1] = t1
+    }
+
+
+    fun kClosest(points: Array<IntArray>, K: Int): Array<IntArray> {
+        var q = PriorityQueue<IntArray> { a , b ->
+            a[0] * a[0] + a[1] * a[1] - b[0] * b[0] - b[1] * b[1]
+        }
+
+        for (point in points) {
+            q.offer(point)
+        }
+
+        var n = Math.min(points.size, K)
+
+        var res = Array(n) { IntArray(2) }
+        for (i in 0 until n) {
+            res[i] = q.poll()
+        }
+
+        return res
     }
 }
 

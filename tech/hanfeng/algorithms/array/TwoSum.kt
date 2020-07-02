@@ -44,7 +44,7 @@ fun twoSum2(nums: IntArray, target: Int): IntArray {
     val map = HashMap<Int, Int>()
 
     for((i, num) in nums.withIndex()) {
-        var complement = nums[i] - target
+        val complement = num - target
         if (map.containsKey(complement)) {
             return intArrayOf(map[complement]!!, i)
         } else {
