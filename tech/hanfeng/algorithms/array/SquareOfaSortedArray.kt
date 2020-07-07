@@ -2,23 +2,19 @@ package tech.hanfeng.algorithms.array
 
 // O(N)
 fun sortedSquares(A: IntArray): IntArray {
-    var out = IntArray(A.size)
-    var start = 0
-    var end = A.size - 1
-    var index = A.size - 1
-    while (start <= end) {
-        val S = A[start] * A[start]
-        val E = A[end] * A[end]
-        if (S > E) {
-            out[index] = S
-            start++
+    val res = IntArray(A.size)
+    var i = 0
+    var j = A.size - 1
+    for (index in A.size - 1 downTo 0) {
+        if (Math.abs(A[i]) > Math.abs(A[j])) {
+            res[index] = A[i] * A[i]
+            i++
         } else {
-            out[index] = E
-            end--
+            res[index] = A[j] * A[j]
+            j--
         }
-        index--
     }
-    return out
+    return res
 }
 
 fun main() {

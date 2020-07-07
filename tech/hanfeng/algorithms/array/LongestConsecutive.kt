@@ -1,4 +1,4 @@
-package tech.hanfeng.algorithms.array.util
+package tech.hanfeng.algorithms.array
 
 fun longestConsecutive(nums: IntArray) : Int {
     var res = 0
