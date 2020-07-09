@@ -1,10 +1,9 @@
 package tech.hanfeng.algorithms.tree
 
 import java.util.*
-import kotlin.collections.ArrayList
 
 class NAryTreeCodec {
-    data class Node(var `val` : Int, var children : ArrayList<Node> = ArrayList())
+    data class Node(var `val` : Int, var children : MutableList<Node?> = mutableListOf())
     private val NULL: String? = "#"
     private val DELIMITER = ","
     fun serialize(root: Node?): String {       // Encodes a tree to a single string.
@@ -31,11 +30,12 @@ class NAryTreeCodec {
             if (s == NULL) return null
             val value = s.toInt()
             val numOfChildren = q.poll().toInt()
-            val node = Node(value, ArrayList(numOfChildren))
+            val node = Node(value)
             for (i in 0 until numOfChildren) {
                 val child = buildTree()
-                if (child != null)
+                if (child != null) {
                     node.children.add(child)
+                }
             }
             return node
         }
@@ -65,6 +65,6 @@ fun main() {
     println(str)
 
     val root = decoder.deserialize(str)
-    println(root!!.children[2].`val`)
-    println(root!!.children[0].children[1].`val`)
+    println(root!!.children[2]!!.`val`)
+    println(root!!.children[0]!!.children[1]!!.`val`)
 }
