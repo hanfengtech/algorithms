@@ -10,21 +10,21 @@ class RandomizedCollection {
     var list = ArrayList<Node>()
     var random = Random()
 
-    fun insert(`val`: Int): Boolean {
-        val newNode = Node(`val`, list.size)
+    fun insert(value: Int): Boolean {
+        val newNode = Node(value, list.size)
         list.add(newNode)                            // add new node to list
-        val node = map[`val`]                        // get node from map
+        val node = map[value]                        // get node from map
         return if (node == null) {
-            map[`val`] = newNode                     // put the new node
+            map[value] = newNode                     // put the new node
             true
         } else {
-            node.duplicates.add(newNode)                // add new node to the child of the node to handle duplicates
+            node.duplicates.add(newNode)             // add new node to the child of the node to handle duplicates
             false
         }
     }
 
-    fun remove(`val`: Int): Boolean {
-        val node = map[`val`]
+    fun remove(value: Int): Boolean {
+        val node = map[value]
         return if (node == null) {
             false
         } else {
