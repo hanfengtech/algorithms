@@ -40,9 +40,9 @@ class KeyValueStore {
 fun main() {
     val kv = KeyValueStore()
 
-    var pair = kv.getRandom()                                      // empty key value store returns null
+    var pair = kv.getRandom()                             // empty key value store returns null
     pair?.run {
-        println("Key: ${this.first}  Value: ${this.second}")       // this should not execute
+        println("Key: $first  Value: $second")            // this should not execute
     }
 
     kv.put(1, "Hello")
@@ -51,12 +51,12 @@ fun main() {
 
     pair = kv.getRandom()
     pair?.run {
-        println("Key: ${this.first}  Value: ${this.second}")
+        println("Key: $first  Value: $second")
     }
 
     pair = kv.getRandom()
     pair?.run {
-        println("Key: ${this.first}  Value: ${this.second}")
+        println("Key: $first  Value: $second")
     }
 
     var a = kv.get(1)
@@ -74,12 +74,12 @@ fun main() {
 
     pair = kv.getRandom()
     pair?.run {
-        println("Key: ${this.first}  Value: ${this.second}")
+        println("Key: $first  Value: $second")
     }
 
     pair = kv.getRandom()
     pair?.run {
-        println("Key: ${this.first}  Value: ${this.second}")
+        println("Key: $first  Value: $second")
     }
 }
 
