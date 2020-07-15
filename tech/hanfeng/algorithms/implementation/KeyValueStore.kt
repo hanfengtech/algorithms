@@ -1,6 +1,7 @@
 package tech.hanfeng.algorithms.implementation
 
-import java.util.*
+import java.util.HashMap
+import java.util.Random
 
 class KeyValueStore<K , V> {
     private data class Node<K, V>(var key : K, var value : V, var index: Int)    // data class to store key, value, and index
@@ -8,9 +9,7 @@ class KeyValueStore<K , V> {
     private var list = ArrayList<Node<K,V>>()
     private var random = Random()
 
-    fun get(key : K) : V? {                             // O(1)
-        return map[key]?.value                          // return the value in Node data class with given key if not null
-    }
+    fun get(key : K) : V? = map[key]?.value             // O(1) return the value in Node data class with given key if not null, else null
 
     fun put(key: K, value: V) {                         // O(1)
         val newNode = Node(key, value, list.size)       // creates the node with all values
@@ -50,14 +49,10 @@ fun main() {
     kv.put(3, "Global")
 
     pair = kv.getRandom()
-    pair?.run {
-        println("Key: $first  Value: $second")
-    }
+    pair?.run { println("Key: $first  Value: $second") }
 
     pair = kv.getRandom()
-    pair?.run {
-        println("Key: $first  Value: $second")
-    }
+    pair?.run { println("Key: $first  Value: $second") }
 
     var a = kv.get(1)
     println("Value: $a")
@@ -73,14 +68,10 @@ fun main() {
     kv.put(4, "Rocks!")
 
     pair = kv.getRandom()
-    pair?.run {
-        println("Key: $first  Value: $second")
-    }
+    pair?.run { println("Key: $first  Value: $second") }
 
     pair = kv.getRandom()
-    pair?.run {
-        println("Key: $first  Value: $second")
-    }
+    pair?.run { println("Key: $first  Value: $second") }
 }
 
 /*
