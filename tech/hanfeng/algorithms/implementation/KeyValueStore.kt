@@ -2,23 +2,23 @@ package tech.hanfeng.algorithms.implementation
 
 import java.util.*
 
-class KeyValueStore {
-    private data class Node(var key : Int, var value: String, var index: Int)    // data class to store key, value, and index
-    private var map = HashMap<Int, Node>()
-    private var list = ArrayList<Node>()
+class KeyValueStore<K , V> {
+    private data class Node<K, V>(var key : K, var value : V, var index: Int)    // data class to store key, value, and index
+    private var map = HashMap<K, Node<K,V>>()
+    private var list = ArrayList<Node<K,V>>()
     private var random = Random()
 
-    fun get(key : Int) : String? {                      // O(1)
+    fun get(key : K) : V? {                             // O(1)
         return map[key]?.value                          // return the value in Node data class with given key if not null
     }
 
-    fun put(key: Int, value: String) {                  // O(1)
+    fun put(key: K, value: V) {                         // O(1)
         val newNode = Node(key, value, list.size)       // creates the node with all values
         list.add(newNode)                               // add new node to list
         map[key] = newNode                              // put the new node
     }
 
-    fun remove(key: Int) {                              // O(1)
+    fun remove(key: K) {                                // O(1)
         val removeNode = map[key] ?: return             // get the node,  if null just return and do nothing
         map.remove(key)                                 // remove from the map
         val lastNode = list[list.lastIndex]             // get the last node in the list
@@ -29,7 +29,7 @@ class KeyValueStore {
         list.removeAt(list.lastIndex)                   // remove last node in the list
     }
 
-    fun getRandom(): Pair<Int, String>? {               // O(1)
+    fun getRandom(): Pair<K, V>? {                      // O(1)
         if (list.isEmpty()) return null
         val randomIdx = random.nextInt(list.size)       // get random index
         val node = list[randomIdx]
@@ -38,7 +38,7 @@ class KeyValueStore {
 }
 
 fun main() {
-    val kv = KeyValueStore()
+    val kv = KeyValueStore<Int, String>()
 
     var pair = kv.getRandom()                             // empty key value store returns null
     pair?.run {
